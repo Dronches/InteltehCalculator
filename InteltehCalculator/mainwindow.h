@@ -32,11 +32,14 @@ private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
 
-    /// Путь к геометрии главного окна
-    QString settings_mainWindow_Geometry = "MainWindow/geometry";
+    /// Наименование организации
+    static QString settings_WorkPlace;
 
-    /// Путь к положению главного окна
-    QString settings_mainWindow_State = "MainWindow/state";
+    // Наименование приложения
+    static QString settings_AppName;
+
+    /// Путь к геометрии главного окна
+    static QString settings_MainWindow_Geometry;
 
 };
 #endif // MAINWINDOW_H
