@@ -1,32 +1,22 @@
 #include "verifyinfo_mainwindow.h"
 
-const uchar VerifyInfo_MainWindow::MaxInputLength = (uchar)48;
+const uchar VerifyInfo_MainWindow::maxInputLength = (uchar)48;
 
-const char VerifyInfo_MainWindow::FirstSymbol = '0';
+const char VerifyInfo_MainWindow::firstSymbol = '0';
 
-const char VerifyInfo_MainWindow::CommaSymbol = ',';
+const char VerifyInfo_MainWindow::commaSymbol = ',';
 
 VerifyInfo_MainWindow::VerifyInfo_MainWindow(QObject *parent) : QObject(parent)
 {
 
 }
 
-char VerifyInfo_MainWindow::getFirstSymbol()
+bool VerifyInfo_MainWindow::VerifyInput_DigitsNotOverflow(const QString &currentOperand)
 {
-    return FirstSymbol;
-}
-
-char VerifyInfo_MainWindow::getCommaSymbol()
-{
-    return CommaSymbol;
-}
-
-bool VerifyInfo_MainWindow::VerifyInput_Digits(const QString &currentOperand)
-{
-    return (currentOperand.length()<MaxInputLength);
+    return (currentOperand.length()<maxInputLength);
 }
 
 bool VerifyInfo_MainWindow::VerifyInput_CommaNotExist(const QString &currentOperand)
 {
-    return !currentOperand.contains(CommaSymbol);
+    return !currentOperand.contains(commaSymbol);
 }

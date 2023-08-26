@@ -53,25 +53,9 @@ void MainWindow::PrintError_MainWindow(bool needClear, QString messageError)
 
 void MainWindow::ClearCalculatorWindow()
 {
-    ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::getFirstSymbol());
+    ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
     ui->labelDinamic_Operation->setText("");
     ui->labelDinamic_PreviousOperand->setText("");
-}
-
-
-void MainWindow::ButtonDigitSlot()
-{
-    QPushButton* buttonDigit = (QPushButton*)sender();
-    // Стоит начальный символ в главной области
-    if (ui->labelDinamic_CurrentOperand->text() == (QString)VerifyInfo_MainWindow::getFirstSymbol())
-        ui->labelDinamic_CurrentOperand->setText(buttonDigit->text());
-    // Проверка на переполнение
-    else if (VerifyInfo_MainWindow::VerifyInput_Digits(ui->labelDinamic_CurrentOperand->text()))
-        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
-    // вывод ошибки переполнения
-    else
-        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
-                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::DigitOverflow));
 }
 
 
@@ -85,12 +69,27 @@ void MainWindow::closeEvent(QCloseEvent *event)
     QMainWindow::closeEvent(event);
 }
 
+void MainWindow::ButtonDigitSlot()
+{
+    QPushButton* buttonDigit = (QPushButton*)sender();
+    // Стоит начальный символ в главной области
+    if (ui->labelDinamic_CurrentOperand->text() == (QString)VerifyInfo_MainWindow::firstSymbol)
+        ui->labelDinamic_CurrentOperand->setText(buttonDigit->text());
+    // Проверка на переполнение
+    else if (VerifyInfo_MainWindow::VerifyInput_DigitsNotOverflow(ui->labelDinamic_CurrentOperand->text()))
+        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
+    // вывод ошибки переполнения
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::DigitOverflow));
+}
 
 
 void MainWindow::on_buttonSpecial_Comma_clicked()
 {
+    // Проверка наличия символа разделителя
     if (VerifyInfo_MainWindow::VerifyInput_CommaNotExist(ui->labelDinamic_CurrentOperand->text()))
-        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text()+VerifyInfo_MainWindow::getCommaSymbol());
+        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text()+VerifyInfo_MainWindow::commaSymbol);
     else
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::CommaExists));

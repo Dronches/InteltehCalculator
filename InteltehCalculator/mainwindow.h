@@ -21,12 +21,6 @@ public:
     virtual ~MainWindow();
 
     /*!
-     * \brief Обработка события закрытия окна
-     * \param event Событие закрытия окна
-     */
-    void closeEvent(QCloseEvent *event) override;
-
-    /*!
      * \brief Считать сохранённые настройки
      */
     void ReadSettings();
@@ -43,6 +37,12 @@ public slots:
 private slots:
 
     /*!
+     * \brief Обработка события закрытия окна
+     * \param event Событие закрытия окна
+     */
+    void closeEvent(QCloseEvent *event) override;
+
+    /*!
      * \brief Слот для обработки сигналов нажатия кнопок
      */
     void ButtonDigitSlot();
@@ -51,6 +51,7 @@ private slots:
      * \brief Обработка нажатия на кнопку разделителя
      */
     void on_buttonSpecial_Comma_clicked();
+
 
 private:
     /// Отображение главного окна
