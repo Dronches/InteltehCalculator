@@ -164,13 +164,27 @@ void MainWindow::on_buttonSpecial_X_clicked()
     // Проверка на наличие символов для удаления
     if (VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(ui->labelDinamic_CurrentOperand->text()))
     {
-        // Проверка на размер строки, из которой удаляются символы
-        if (ui->labelDinamic_CurrentOperand->text().length()>1)
-            ui->labelDinamic_CurrentOperand->setText(
-                        ui->labelDinamic_CurrentOperand->text().left(
-                            ui->labelDinamic_CurrentOperand->text().length()-1));
+        // Проверка на знак и размер строки, из которой удаляются символы
+        if (VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(ui->labelDinamic_CurrentOperand->text()))
+        {
+            // Проверка на размер строки, из которой удаляются символы
+            if (ui->labelDinamic_CurrentOperand->text().length()>1)
+                ui->labelDinamic_CurrentOperand->setText(
+                            ui->labelDinamic_CurrentOperand->text().left(
+                                ui->labelDinamic_CurrentOperand->text().length()-1));
+            else
+                ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
+        }
         else
-            ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
+        {
+            // Проверка на размер строки, из которой удаляются символы (с учётом -)
+            if (ui->labelDinamic_CurrentOperand->text().length()>2)
+                ui->labelDinamic_CurrentOperand->setText(
+                            ui->labelDinamic_CurrentOperand->text().left(
+                                ui->labelDinamic_CurrentOperand->text().length()-1));
+            else
+                ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
+        }
     }
     else
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(

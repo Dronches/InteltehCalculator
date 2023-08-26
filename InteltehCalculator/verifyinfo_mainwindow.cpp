@@ -15,7 +15,8 @@ VerifyInfo_MainWindow::VerifyInfo_MainWindow(QObject *parent) : QObject(parent)
 
 bool VerifyInfo_MainWindow::VerifyInput_DigitsNotOverflow(const QString &currentOperand)
 {
-    return (currentOperand.length()<maxInputLength);
+    // проверка на неотрицательность с проверкой размера (знак '-' в подсчёте не учитывается)
+    return (VerifyInput_NotNegativeDigit(currentOperand)? currentOperand.length()<maxInputLength : currentOperand.length()<maxInputLength+1) ;
 }
 
 bool VerifyInfo_MainWindow::VerifyInput_CommaNotExist(const QString &currentOperand)
