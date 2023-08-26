@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "qqueue.h"
 
 QString MainWindow::settings_WorkPlace = "Intelteh";
 
@@ -45,11 +44,11 @@ void MainWindow::ReadSettings()
 void MainWindow::ButtonDigitSlot()
 {
     QPushButton* buttonDigit = (QPushButton*)sender();
-    if (ui->labelDinamic_CurrentOperand->text() == "0")
+    if (ui->labelDinamic_CurrentOperand->text() == (QString)VerifyInfo_MainWindow::getFirstSymbol())
     {
         ui->labelDinamic_CurrentOperand->setText(buttonDigit->text());
     }
-    else
+    else if (VerifyInfo_MainWindow::VerifyInput_Digits(ui->labelDinamic_CurrentOperand->text()))
     {
         ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
     }
