@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QSettings>
 #include "verifyinfo_mainwindow.h"
+#include "errorsspecifier_mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,6 +31,13 @@ public:
      */
     void ReadSettings();
 
+    /*!
+     * \brief Вывод ошибки типа MainWindow_Errors
+     * \param needClear нужна ли очистка области калькулятора
+     * \param typeError тип ошибки по MainWindow_Errors
+     */
+    void PrintError_MainWindow(bool needClear, QString message);
+
 public slots:
 
 private slots:
@@ -42,15 +50,17 @@ private slots:
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
-
     /// Наименование организации
     static QString settings_WorkPlace;
-
-    // Наименование приложения
+    /// Наименование приложения
     static QString settings_AppName;
-
     /// Путь к геометрии главного окна
     static QString settings_MainWindow_Geometry;
+
+    /*!
+     * \brief Функция очистки области калькулятора
+     */
+    void ClearCalculatorWindow();
 
 };
 #endif // MAINWINDOW_H

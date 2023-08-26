@@ -40,18 +40,38 @@ void MainWindow::ReadSettings()
     restoreGeometry(settings.value(settings_MainWindow_Geometry).toByteArray());
 }
 
+void MainWindow::PrintError_MainWindow(bool needClear, QString messageError)
+{
+    // Вывод ошибки в консоль
+    ui->textEdit_Console->setTextColor(Qt::red);
+    ui->textEdit_Console->append(messageError);
+
+    // Очистка области калькулятора
+    if (needClear)
+        ClearCalculatorWindow();
+}
+
+void MainWindow::ClearCalculatorWindow()
+{
+    ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::getFirstSymbol());
+    ui->labelDinamic_Operation->setText("");
+    ui->labelDinamic_PreviousOperand->setText("");
+}
+
 
 void MainWindow::ButtonDigitSlot()
 {
     QPushButton* buttonDigit = (QPushButton*)sender();
+    // Стоит начальный символ в главной области
     if (ui->labelDinamic_CurrentOperand->text() == (QString)VerifyInfo_MainWindow::getFirstSymbol())
-    {
         ui->labelDinamic_CurrentOperand->setText(buttonDigit->text());
-    }
+    // Проверка на переполнение
     else if (VerifyInfo_MainWindow::VerifyInput_Digits(ui->labelDinamic_CurrentOperand->text()))
-    {
         ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
-    }
+    // вывод ошибки переполнения
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::DigitOverflow));
 }
 
 
