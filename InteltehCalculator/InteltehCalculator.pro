@@ -31,3 +31,8 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+unix:!macx: LIBS += -L$$PWD/../build-CalculatorOperationsLib-Desktop_Qt_5_12_12_GCC_64bit-Release/ -lCalculatorOperationsLib
+
+INCLUDEPATH += $$PWD/../CalculatorOperationsLib
+DEPENDPATH += $$PWD/../CalculatorOperationsLib
