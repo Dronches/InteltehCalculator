@@ -31,6 +31,12 @@ public:
 
 public slots:
 
+private slots:
+
+    /*!
+     * \brief Слот для обработки сигналов нажатия кнопок
+     */
+    void ButtonDigitSlot();
 
 private:
     /// Отображение главного окна
