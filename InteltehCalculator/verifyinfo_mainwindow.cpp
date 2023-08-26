@@ -6,6 +6,8 @@ const char VerifyInfo_MainWindow::firstSymbol = '0';
 
 const char VerifyInfo_MainWindow::commaSymbol = ',';
 
+const char VerifyInfo_MainWindow::minusSymbol = '-';
+
 VerifyInfo_MainWindow::VerifyInfo_MainWindow(QObject *parent) : QObject(parent)
 {
 
@@ -29,4 +31,9 @@ bool VerifyInfo_MainWindow::VerifyInput_NotClearedCalculator(const QString &curr
 bool VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand)
 {
     return !(currentOperand == firstSymbol);
+}
+
+bool VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(const QString &currentOperand)
+{
+    return !currentOperand.contains(minusSymbol);
 }

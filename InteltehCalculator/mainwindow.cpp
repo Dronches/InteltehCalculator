@@ -92,6 +92,19 @@ void MainWindow::ReplaceCurrentOperandToPrevious()
 }
 
 
+void MainWindow::SwitchSign()
+{
+    // Проверка - стоит ли начальный символ
+    if (!VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(ui->labelDinamic_CurrentOperand->text()))
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::CantAddMinesToZero));
+    // Определение отрицательности и удаление/добавление знака -
+    else if (VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(ui->labelDinamic_CurrentOperand->text()))
+        ui->labelDinamic_CurrentOperand->setText(VerifyInfo_MainWindow::minusSymbol+ui->labelDinamic_CurrentOperand->text());
+    else
+        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text().remove(0,1));
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     // Сохранение настроек геометрии
@@ -201,5 +214,12 @@ void MainWindow::on_buttonSpecial_T_clicked()
     else
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyExistNotTimeOperation));
+}
+
+
+void MainWindow::on_buttonSpecial_SwitchSign_clicked()
+{
+   // сменить знак
+   SwitchSign();
 }
 

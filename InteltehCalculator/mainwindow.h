@@ -88,6 +88,11 @@ private slots:
      */
     void on_buttonSpecial_T_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку изменения знака числа
+     */
+    void on_buttonSpecial_SwitchSign_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
@@ -122,6 +127,11 @@ private:
      * \brief Перенести текущий операнд на предыдущий
      */
     void ReplaceCurrentOperandToPrevious();
+
+    /*!
+     * \brief изменить знак числа в текущем поле
+     */
+    void SwitchSign();
 
 };
 #endif // MAINWINDOW_H

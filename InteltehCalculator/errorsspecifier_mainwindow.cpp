@@ -9,7 +9,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {AlreadyClearedCalculator, "Область калькулятора уже очищена"},
     {NotExistToDeleteCalculator, "Нет символов для удаления"},
     {RepeatOperation, "Операция уже применена"},
-    {AlreadyExistNotTimeOperation, "Невозможно изменить время, т.к. выбрана другая операция"}
+    {AlreadyExistNotTimeOperation, "Невозможно изменить время, т.к. выбрана другая операция"},
+    {CantAddMinesToZero, "Число 0 не является отрицательным"}
 };
 
 ErrorsSpecifier_MainWindow::ErrorsSpecifier_MainWindow()

@@ -18,8 +18,10 @@ class VerifyInfo_MainWindow : public QObject
 public:
     /// Символ по умолчанию
     static const char firstSymbol;
-    /// Символ используемый в качестве разделителя дробной части
+    /// Символ, используемый в качестве разделителя дробной части
     static const char commaSymbol;
+    /// Символ отрицательного числа
+    static const char minusSymbol;
 
 
     explicit VerifyInfo_MainWindow(QObject *parent = nullptr);
@@ -53,6 +55,15 @@ public:
      * \return результат проверки
      */
     static bool VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand);
+
+
+    /*!
+     * \brief Проверка на отсуствие знака '-' в числе
+     * \param currentOperand главная строка ввода (текущий операнд)
+     * \return результат проверки
+     */
+    static bool VerifyInput_NotNegativeDigit(const QString &currentOperand);
+
 
 signals:
 

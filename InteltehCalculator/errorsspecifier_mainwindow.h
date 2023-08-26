@@ -23,7 +23,8 @@ public:
         AlreadyClearedCalculator = 4,
         NotExistToDeleteCalculator = 5,
         RepeatOperation = 6,
-        AlreadyExistNotTimeOperation = 7
+        AlreadyExistNotTimeOperation = 7,
+        CantAddMinesToZero = 8
     };
 
     ErrorsSpecifier_MainWindow();
