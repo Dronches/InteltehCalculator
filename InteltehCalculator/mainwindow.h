@@ -57,6 +57,9 @@ private slots:
      */
     void on_buttonSpecial_C_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку удаления символа
+     */
     void on_buttonSpecial_X_clicked();
 
 private:
