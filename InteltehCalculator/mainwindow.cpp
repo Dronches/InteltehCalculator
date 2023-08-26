@@ -67,6 +67,12 @@ void MainWindow::ClearCalculatorWindow()
     ui->labelDinamic_PreviousOperand->setText("");
 }
 
+void MainWindow::ReplaceCurrentOperandToPrevious()
+{
+    ui->labelDinamic_PreviousOperand->setText(ui->labelDinamic_CurrentOperand->text());
+    ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
+}
+
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
@@ -136,5 +142,24 @@ void MainWindow::on_buttonSpecial_X_clicked()
     else
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::NotExistToDeleteCalculator));
+}
+
+
+void MainWindow::on_buttonOperation_Sum_clicked()
+{
+    // Проверка на совпадение операций
+    if (ui->buttonOperation_Sum->text() == ui->labelDinamic_Operation->text())
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::RepeatOperation));
+    else
+    {
+        // Перенос операции
+        if (ui->labelDinamic_PreviousOperand->text() == "")
+            ReplaceCurrentOperandToPrevious();
+
+        // Сохранение операции
+        ui->labelDinamic_Operation->setText(ui->buttonOperation_Sum->text());
+        calculatorOperationQueues->SetCurrentOperation(CalculatorOperationsLib::TypesOperation::Plus);
+    }
 }
 

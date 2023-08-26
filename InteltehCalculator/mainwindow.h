@@ -63,6 +63,11 @@ private slots:
      */
     void on_buttonSpecial_X_clicked();
 
+    /*!
+     * \brief Обработка нажатия на операцию сложения
+     */
+    void on_buttonOperation_Sum_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
@@ -79,6 +84,11 @@ private:
      * \brief Функция очистки области калькулятора
      */
     void ClearCalculatorWindow();
+
+    /*!
+     * \brief Перенести текущий операнд на предыдущий
+     */
+    void ReplaceCurrentOperandToPrevious();
 
     /*!
      * \brief Напечатать сообщение в консоли зелёным цветом

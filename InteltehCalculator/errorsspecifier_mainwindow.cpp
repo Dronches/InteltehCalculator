@@ -7,7 +7,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {DigitOverflow, "Переполнение области числового ввода"},
     {CommaExists, "Разделитель уже введён"},
     {AlreadyClearedCalculator, "Область калькулятора уже очищена"},
-    {NotExistToDeleteCalculator, "Нет символов для удаления"}
+    {NotExistToDeleteCalculator, "Нет символов для удаления"},
+    {RepeatOperation, "Операция уже применена"}
 };
 
 ErrorsSpecifier_MainWindow::ErrorsSpecifier_MainWindow()

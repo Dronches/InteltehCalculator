@@ -21,7 +21,8 @@ public:
         DigitOverflow = 2,
         CommaExists = 3,
         AlreadyClearedCalculator = 4,
-        NotExistToDeleteCalculator = 5
+        NotExistToDeleteCalculator = 5,
+        RepeatOperation = 6
     };
 
     ErrorsSpecifier_MainWindow();
