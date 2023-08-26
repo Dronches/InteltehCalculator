@@ -24,7 +24,9 @@ public:
         NotExistToDeleteCalculator = 5,
         RepeatOperation = 6,
         AlreadyExistNotTimeOperation = 7,
-        CantAddMinesToZero = 8
+        TimeIsNotInt = 8,
+        TimeIsNegative = 9,
+        CantAddMinesToZero = 10
     };
 
     ErrorsSpecifier_MainWindow();

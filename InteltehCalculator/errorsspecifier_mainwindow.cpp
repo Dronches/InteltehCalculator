@@ -10,6 +10,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {NotExistToDeleteCalculator, "Нет символов для удаления"},
     {RepeatOperation, "Операция уже применена"},
     {AlreadyExistNotTimeOperation, "Невозможно изменить время, т.к. выбрана другая операция"},
+    {TimeIsNotInt, "Время операции должно быть целочисленным"},
+    {TimeIsNegative, "Время операции не может быть отрицательным"},
     {CantAddMinesToZero, "Число 0 не является отрицательным"}
 };
 

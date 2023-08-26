@@ -219,15 +219,24 @@ void MainWindow::on_buttonOperation_Div_clicked()
 void MainWindow::on_buttonSpecial_T_clicked()
 {
     // Проверка на отсутствие операции и запятой в главном поле
-    if (ui->labelDinamic_Operation->text() == "" && VerifyInfo_MainWindow::VerifyInput_CommaNotExist(ui->labelDinamic_CurrentOperand->text()))
+    if (ui->labelDinamic_Operation->text() != "")
+            PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                      ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyExistNotTimeOperation));
+    // проверка на целочисленность
+    else if (!VerifyInfo_MainWindow::VerifyInput_CommaNotExist(ui->labelDinamic_CurrentOperand->text()))
+        PrintError_MainWindow(true, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::TimeIsNotInt));
+    // Проверка на неотрицательность
+    else if (!VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(ui->labelDinamic_CurrentOperand->text()))
+        PrintError_MainWindow(true, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::TimeIsNegative));
+    else
     {
         calculatorOperationQueues->SetCurrentOperationTime(ui->labelDinamic_CurrentOperand->text().toInt());
         PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
         ClearCalculatorWindow();
     }
-    else
-        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
-                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyExistNotTimeOperation));
+
 }
 
 
