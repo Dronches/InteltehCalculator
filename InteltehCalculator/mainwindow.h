@@ -86,15 +86,22 @@ private:
     void ClearCalculatorWindow();
 
     /*!
-     * \brief Перенести текущий операнд на предыдущий
-     */
-    void ReplaceCurrentOperandToPrevious();
-
-    /*!
      * \brief Напечатать сообщение в консоли зелёным цветом
      * \param Сообщение для печати
      */
     void PrintSuccess_MainWindow(QString messageSuccess);
+
+    /*!
+     * \brief AcceptOperation Применить операцию на интерфейсе калькулятора в соответствии с проверками
+     * \param typeOperation тип операции
+     * \param textOperation текст кнопки операции
+     */
+    void AcceptOperation(CalculatorOperationsLib::TypesOperation typeOperation, QString textOperation);
+
+    /*!
+     * \brief Перенести текущий операнд на предыдущий
+     */
+    void ReplaceCurrentOperandToPrevious();
 
 };
 #endif // MAINWINDOW_H

@@ -67,6 +67,24 @@ void MainWindow::ClearCalculatorWindow()
     ui->labelDinamic_PreviousOperand->setText("");
 }
 
+void MainWindow::AcceptOperation(CalculatorOperationsLib::TypesOperation typeOperation, QString textOperation)
+{
+    // Проверка на совпадение операций
+    if (textOperation == ui->labelDinamic_Operation->text())
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::RepeatOperation));
+    else
+    {
+        // Перенос операции
+        if (ui->labelDinamic_PreviousOperand->text() == "")
+            ReplaceCurrentOperandToPrevious();
+
+        // Сохранение операции
+        ui->labelDinamic_Operation->setText(textOperation);
+        calculatorOperationQueues->SetCurrentOperation(typeOperation);
+    }
+}
+
 void MainWindow::ReplaceCurrentOperandToPrevious()
 {
     ui->labelDinamic_PreviousOperand->setText(ui->labelDinamic_CurrentOperand->text());
@@ -130,8 +148,10 @@ void MainWindow::on_buttonSpecial_C_clicked()
 
 void MainWindow::on_buttonSpecial_X_clicked()
 {
+    // Проверка на наличие символов для удаления
     if (VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(ui->labelDinamic_CurrentOperand->text()))
     {
+        // Проверка на размер строки, из которой удаляются символы
         if (ui->labelDinamic_CurrentOperand->text().length()>1)
             ui->labelDinamic_CurrentOperand->setText(
                         ui->labelDinamic_CurrentOperand->text().left(
@@ -147,19 +167,6 @@ void MainWindow::on_buttonSpecial_X_clicked()
 
 void MainWindow::on_buttonOperation_Sum_clicked()
 {
-    // Проверка на совпадение операций
-    if (ui->buttonOperation_Sum->text() == ui->labelDinamic_Operation->text())
-        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
-                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::RepeatOperation));
-    else
-    {
-        // Перенос операции
-        if (ui->labelDinamic_PreviousOperand->text() == "")
-            ReplaceCurrentOperandToPrevious();
-
-        // Сохранение операции
-        ui->labelDinamic_Operation->setText(ui->buttonOperation_Sum->text());
-        calculatorOperationQueues->SetCurrentOperation(CalculatorOperationsLib::TypesOperation::Plus);
-    }
+    AcceptOperation(CalculatorOperationsLib::TypesOperation::Plus, ui->buttonOperation_Sum->text());
 }
 
