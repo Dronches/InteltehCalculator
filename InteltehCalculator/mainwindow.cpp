@@ -232,11 +232,20 @@ void MainWindow::on_buttonSpecial_T_clicked()
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::TimeIsNegative));
     else
     {
-        // применить введённое время операции
-        calculatorOperationQueues->SetCurrentOperationTime(ui->labelDinamic_CurrentOperand->text().toInt());
-        ui->labelDinamic_TimeOperations->setText(ui->labelDinamic_CurrentOperand->text());
-        PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
-        ClearCalculatorWindow();
+        int timeOperation = ui->labelDinamic_CurrentOperand->text().toInt();
+        // проверка на переполнение времени операции
+        if (VerifyInfo_MainWindow::VerifyInput_MaxTimeOperation(timeOperation))
+        {
+            // применить введённое время операции
+            calculatorOperationQueues->SetCurrentOperationTime(timeOperation);
+            ui->labelDinamic_TimeOperations->setText(ui->labelDinamic_CurrentOperand->text());
+            PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
+            ClearCalculatorWindow();
+        }
+        else
+            PrintError_MainWindow(true, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                      ErrorsSpecifier_MainWindow::MainWindow_Errors::TimeOperationOverflow)
+                                      + " " + QString::number(VerifyInfo_MainWindow::maxTimeOperation));
     }
 
 }

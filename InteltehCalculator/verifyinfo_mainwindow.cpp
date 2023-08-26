@@ -8,6 +8,8 @@ const char VerifyInfo_MainWindow::commaSymbol = ',';
 
 const char VerifyInfo_MainWindow::minusSymbol = '-';
 
+const int VerifyInfo_MainWindow::maxTimeOperation = 100;
+
 VerifyInfo_MainWindow::VerifyInfo_MainWindow(QObject *parent) : QObject(parent)
 {
 
@@ -38,3 +40,9 @@ bool VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(const QString &currentO
 {
     return !currentOperand.contains(minusSymbol);
 }
+
+bool VerifyInfo_MainWindow::VerifyInput_MaxTimeOperation(const int& timeOperation)
+{
+    return timeOperation<=maxTimeOperation;
+}
+

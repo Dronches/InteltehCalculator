@@ -12,6 +12,7 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {AlreadyExistNotTimeOperation, "Невозможно изменить время, т.к. выбрана другая операция"},
     {TimeIsNotInt, "Время операции должно быть целочисленным"},
     {TimeIsNegative, "Время операции не может быть отрицательным"},
+    {TimeOperationOverflow, "Время операции в секундах не может превышать максимальное значение"},
     {CantAddMinesToZero, "Число 0 не является отрицательным"}
 };
 

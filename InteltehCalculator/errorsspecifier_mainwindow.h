@@ -26,7 +26,8 @@ public:
         AlreadyExistNotTimeOperation = 7,
         TimeIsNotInt = 8,
         TimeIsNegative = 9,
-        CantAddMinesToZero = 10
+        TimeOperationOverflow = 10,
+        CantAddMinesToZero = 11
     };
 
     ErrorsSpecifier_MainWindow();

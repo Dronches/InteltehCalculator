@@ -22,7 +22,8 @@ public:
     static const char commaSymbol;
     /// Символ отрицательного числа
     static const char minusSymbol;
-
+    /// Максимальное принятое время операции (во избежание болей ожидания)
+    static const int maxTimeOperation;
 
     explicit VerifyInfo_MainWindow(QObject *parent = nullptr);
 
@@ -62,6 +63,13 @@ public:
      * \return результат проверки
      */
     static bool VerifyInput_NotNegativeDigit(const QString &currentOperand);
+
+    /*!
+     * \brief Проверка на не превышение максимального времени операции
+     * \param timeOperation время операции (сек)
+     * \return результат проверки
+     */
+    static bool VerifyInput_MaxTimeOperation(const int& timeOperation);
 
 
 signals:
