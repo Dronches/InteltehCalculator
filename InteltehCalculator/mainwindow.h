@@ -93,6 +93,11 @@ private slots:
      */
     void on_buttonSpecial_SwitchSign_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку очистки консоли
+     */
+    void on_buttonConsole_Clear_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
@@ -111,6 +116,11 @@ private:
      * \brief Функция очистки области калькулятора
      */
     void ClearCalculatorWindow();
+
+    /*!
+     * \brief Функция очистки данных консоли
+     */
+    void ClearConsole();
 
     /*!
      * \brief Напечатать сообщение в консоли зелёным цветом

@@ -172,7 +172,7 @@
         <property name="minimumSize">
          <size>
           <width>150</width>
-          <height>30</height>
+          <height>20</height>
          </size>
         </property>
         <property name="font">
@@ -185,7 +185,7 @@
          <string>Очередь операций:</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
         </property>
         <property name="margin">
          <number>2</number>
@@ -254,7 +254,7 @@
         <property name="minimumSize">
          <size>
           <width>75</width>
-          <height>30</height>
+          <height>20</height>
          </size>
         </property>
         <property name="font">
@@ -891,7 +891,7 @@ p, li { white-space: pre-wrap; }
         <property name="minimumSize">
          <size>
           <width>75</width>
-          <height>30</height>
+          <height>20</height>
          </size>
         </property>
         <property name="font">
@@ -924,7 +924,7 @@ p, li { white-space: pre-wrap; }
         <property name="minimumSize">
          <size>
           <width>150</width>
-          <height>30</height>
+          <height>20</height>
          </size>
         </property>
         <property name="font">
@@ -937,7 +937,7 @@ p, li { white-space: pre-wrap; }
          <string>Очередь результатов:</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
         </property>
         <property name="margin">
          <number>2</number>
@@ -947,10 +947,16 @@ p, li { white-space: pre-wrap; }
       <item row="8" column="6">
        <widget class="QLabel" name="labelStatic_TimeOperations">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>20</height>
+         </size>
         </property>
         <property name="font">
          <font>
@@ -972,10 +978,16 @@ p, li { white-space: pre-wrap; }
       <item row="8" column="7">
        <widget class="QLabel" name="labelDinamic_TimeOperations">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>20</height>
+         </size>
         </property>
         <property name="font">
          <font>

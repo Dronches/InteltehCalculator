@@ -68,6 +68,11 @@ void MainWindow::ClearCalculatorWindow()
     ui->labelDinamic_PreviousOperand->setText("");
 }
 
+void MainWindow::ClearConsole()
+{
+    ui->textEdit_Console->setText("");
+}
+
 void MainWindow::AcceptOperation(CalculatorOperationsLib::TypesOperation typeOperation, QString textOperation)
 {
     // Проверка на совпадение операций
@@ -256,5 +261,11 @@ void MainWindow::on_buttonSpecial_SwitchSign_clicked()
 {
    // сменить знак
    SwitchSign();
+}
+
+
+void MainWindow::on_buttonConsole_Clear_clicked()
+{
+    ClearConsole();
 }
 
