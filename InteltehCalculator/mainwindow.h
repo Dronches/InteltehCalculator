@@ -52,6 +52,10 @@ private slots:
      */
     void on_buttonSpecial_Comma_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку очистки калькулятора
+     */
+    void on_buttonSpecial_C_clicked();
 
 private:
     /// Отображение главного окна
@@ -67,6 +71,12 @@ private:
      * \brief Функция очистки области калькулятора
      */
     void ClearCalculatorWindow();
+
+    /*!
+     * \brief Напечатать сообщение в консоли зелёным цветом
+     * \param Сообщение для печати
+     */
+    void PrintSuccess_MainWindow(QString messageSuccess);
 
 };
 #endif // MAINWINDOW_H

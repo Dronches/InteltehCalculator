@@ -51,6 +51,12 @@ void MainWindow::PrintError_MainWindow(bool needClear, QString messageError)
         ClearCalculatorWindow();
 }
 
+void MainWindow::PrintSuccess_MainWindow(QString messageSuccess)
+{
+    ui->textEdit_Console->setTextColor(Qt::green);
+    ui->textEdit_Console->append(messageSuccess);
+}
+
 void MainWindow::ClearCalculatorWindow()
 {
     ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
@@ -94,5 +100,21 @@ void MainWindow::on_buttonSpecial_Comma_clicked()
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::CommaExists));
 
+}
+
+
+void MainWindow::on_buttonSpecial_C_clicked()
+{
+    // Проверка очистки полей
+    if (VerifyInfo_MainWindow::VerifyInput_NotClearedCalculator(ui->labelDinamic_CurrentOperand->text(),
+                                        ui->labelDinamic_PreviousOperand->text(),
+                                        ui->labelDinamic_Operation->text()))
+    {
+        ClearCalculatorWindow();
+        PrintSuccess_MainWindow("Успешно очищено");
+    }
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyClearedCalculator));
 }
 

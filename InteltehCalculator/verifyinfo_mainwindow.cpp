@@ -20,3 +20,8 @@ bool VerifyInfo_MainWindow::VerifyInput_CommaNotExist(const QString &currentOper
 {
     return !currentOperand.contains(commaSymbol);
 }
+
+bool VerifyInfo_MainWindow::VerifyInput_NotClearedCalculator(const QString &currentOperand, const QString &previousOperand, const QString &operation)
+{
+    return !(currentOperand == firstSymbol && previousOperand == "" && operation == "");
+}

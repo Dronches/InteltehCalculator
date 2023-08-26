@@ -38,6 +38,16 @@ public:
      */
     static bool VerifyInput_CommaNotExist(const QString &currentOperand);
 
+    /*!
+     * \brief Проверка очистки полей калькулятора
+     * \param currentOperand строка текущего ввода (главная)
+     * \param previousOperand строка предыдущего ввода (левый операнд)
+     * \param operation операция
+     * \return результат проверки (успешно - true)
+     */
+    static bool VerifyInput_NotClearedCalculator(const QString &currentOperand, const QString &previousOperand, const QString &operation);
+
+
 signals:
 
 };

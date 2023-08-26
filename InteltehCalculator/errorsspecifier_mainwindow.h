@@ -19,7 +19,8 @@ public:
         NoError = 0,
         UnknownError= 1,
         DigitOverflow = 2,
-        CommaExists = 3
+        CommaExists = 3,
+        AlreadyClearedCalculator = 4
     };
 
     ErrorsSpecifier_MainWindow();
