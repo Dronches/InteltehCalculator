@@ -4,9 +4,21 @@
 #include <QLocale>
 #include <QTranslator>
 
+#include <queue>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
+
+    std::queue<int*> q;
+    int* i = new int(5);
+    q.push(i);
+    int *p = q.front();
+    q.pop();
+    qDebug() << q.size();
+    qDebug() << *p;
+
+
     QApplication a(argc, argv);
 
     QTranslator translator;

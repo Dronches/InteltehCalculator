@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     operationinfo.cpp \
+    templatecollection.cpp \
     verifyinfo_mainwindow.cpp
 
 HEADERS += \
@@ -21,6 +22,7 @@ HEADERS += \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
     operationinfo.h \
+    templatecollection.h \
     verifyinfo_mainwindow.h
 
 FORMS += \
