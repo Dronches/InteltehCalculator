@@ -20,7 +20,8 @@ public:
         UnknownError= 1,
         DigitOverflow = 2,
         CommaExists = 3,
-        AlreadyClearedCalculator = 4
+        AlreadyClearedCalculator = 4,
+        NotExistToDeleteCalculator = 5
     };
 
     ErrorsSpecifier_MainWindow();

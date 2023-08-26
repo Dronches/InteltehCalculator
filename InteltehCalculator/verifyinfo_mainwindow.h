@@ -47,6 +47,13 @@ public:
      */
     static bool VerifyInput_NotClearedCalculator(const QString &currentOperand, const QString &previousOperand, const QString &operation);
 
+    /*!
+     * \brief Проверка наличия данных в главном поле для удаления
+     * \param currentOperand главная строка ввода (текущий операнд)
+     * \return результат проверки
+     */
+    static bool VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand);
+
 
 signals:
 

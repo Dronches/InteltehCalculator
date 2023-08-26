@@ -57,6 +57,8 @@ private slots:
      */
     void on_buttonSpecial_C_clicked();
 
+    void on_buttonSpecial_X_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;

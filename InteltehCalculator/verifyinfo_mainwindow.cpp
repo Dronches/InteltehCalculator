@@ -25,3 +25,8 @@ bool VerifyInfo_MainWindow::VerifyInput_NotClearedCalculator(const QString &curr
 {
     return !(currentOperand == firstSymbol && previousOperand == "" && operation == "");
 }
+
+bool VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand)
+{
+    return !(currentOperand == firstSymbol);
+}

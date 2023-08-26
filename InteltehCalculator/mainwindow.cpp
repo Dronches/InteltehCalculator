@@ -118,3 +118,20 @@ void MainWindow::on_buttonSpecial_C_clicked()
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyClearedCalculator));
 }
 
+
+void MainWindow::on_buttonSpecial_X_clicked()
+{
+    if (VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(ui->labelDinamic_CurrentOperand->text()))
+    {
+        if (ui->labelDinamic_CurrentOperand->text().length()>1)
+            ui->labelDinamic_CurrentOperand->setText(
+                        ui->labelDinamic_CurrentOperand->text().left(
+                            ui->labelDinamic_CurrentOperand->text().length()-1));
+        else
+            ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
+    }
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::NotExistToDeleteCalculator));
+}
+
