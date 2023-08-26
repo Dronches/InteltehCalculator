@@ -7,6 +7,7 @@
 template <class T>
 class TemplateCollection
 {
+    /// Очередь объектов используемого типа (операция/результат)
     std::queue<T*> queueData;
 
 public:
