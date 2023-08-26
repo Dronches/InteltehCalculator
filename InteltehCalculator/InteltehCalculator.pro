@@ -13,12 +13,14 @@ SOURCES += \
     errorsspecifier_mainwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    operationinfo.cpp \
     verifyinfo_mainwindow.cpp
 
 HEADERS += \
     calculatoroperationqueues.h \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
+    operationinfo.h \
     verifyinfo_mainwindow.h
 
 FORMS += \
