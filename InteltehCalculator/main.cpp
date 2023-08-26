@@ -4,6 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -17,8 +18,9 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
     MainWindow w;
     w.show();
-    w.readSettings();
+    w.ReadSettings();
     return a.exec();
 }

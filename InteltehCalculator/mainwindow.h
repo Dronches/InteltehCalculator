@@ -14,8 +14,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    virtual ~MainWindow();
 
     /*!
      * \brief Обработка события закрытия окна
@@ -26,7 +27,10 @@ public:
     /*!
      * \brief Считать сохранённые настройки
      */
-    void readSettings();
+    void ReadSettings();
+
+public slots:
+
 
 private:
     /// Отображение главного окна

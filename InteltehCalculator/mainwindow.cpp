@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "qqueue.h"
 QString MainWindow::settings_WorkPlace = "Intelteh";
 
 QString MainWindow::settings_AppName = "InteltehCalculator";
@@ -21,7 +21,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::readSettings()
+void MainWindow::ReadSettings()
 {
     // Извлечение и применение настроек геометрии
     QSettings settings(settings_WorkPlace, settings_AppName);
