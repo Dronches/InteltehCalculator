@@ -56,7 +56,6 @@ public:
      */
     static bool VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand);
 
-
     /*!
      * \brief Проверка на отсуствие знака '-' в числе
      * \param currentOperand главная строка ввода (текущий операнд)
