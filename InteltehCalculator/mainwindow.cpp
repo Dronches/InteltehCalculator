@@ -45,7 +45,14 @@ void MainWindow::ReadSettings()
 void MainWindow::ButtonDigitSlot()
 {
     QPushButton* buttonDigit = (QPushButton*)sender();
-    ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
+    if (ui->labelDinamic_CurrentOperand->text() == "0")
+    {
+        ui->labelDinamic_CurrentOperand->setText(buttonDigit->text());
+    }
+    else
+    {
+        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text() + buttonDigit->text());
+    }
 }
 
 
