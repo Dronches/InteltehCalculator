@@ -3,11 +3,18 @@
 
 #include <QObject>
 
+/*!
+ * \brief Класс, предоставляющий интерфейс проверок ввода главного окна
+ * Предполагается, что в дальнейшем может давать сигналы на главное окно
+ * для последующей обработки.
+ */
 class VerifyInfo_MainWindow : public QObject
 {
     Q_OBJECT
 
+    /// Ограничение максимального размера ввода
     static const uchar MaxInputLength;
+    /// Символ по умолчанию
     static const char FirstSymbol;
 
 public:
