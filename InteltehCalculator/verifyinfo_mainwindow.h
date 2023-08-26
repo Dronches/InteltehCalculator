@@ -54,7 +54,6 @@ public:
      */
     static bool VerifyInput_ExistsSymbolsToDelete(const QString &currentOperand);
 
-
 signals:
 
 };

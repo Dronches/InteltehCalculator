@@ -170,3 +170,36 @@ void MainWindow::on_buttonOperation_Sum_clicked()
     AcceptOperation(CalculatorOperationsLib::TypesOperation::Plus, ui->buttonOperation_Sum->text());
 }
 
+
+void MainWindow::on_buttonOperation_Mines_clicked()
+{
+    AcceptOperation(CalculatorOperationsLib::TypesOperation::Mines, ui->buttonOperation_Mines->text());
+}
+
+
+void MainWindow::on_buttonOperation_Mult_clicked()
+{
+    AcceptOperation(CalculatorOperationsLib::TypesOperation::Multiplicaion, ui->buttonOperation_Mult->text());
+}
+
+
+void MainWindow::on_buttonOperation_Div_clicked()
+{
+    AcceptOperation(CalculatorOperationsLib::TypesOperation::Division, ui->buttonOperation_Div->text());
+}
+
+
+void MainWindow::on_buttonSpecial_T_clicked()
+{
+    // Проверка на отсутствие операции и запятой в главном поле
+    if (ui->labelDinamic_Operation->text() == "" && VerifyInfo_MainWindow::VerifyInput_CommaNotExist(ui->labelDinamic_CurrentOperand->text()))
+    {
+        calculatorOperationQueues->SetCurrentOperationTime(ui->labelDinamic_CurrentOperand->text().toInt());
+        PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
+        ClearCalculatorWindow();
+    }
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::AlreadyExistNotTimeOperation));
+}
+

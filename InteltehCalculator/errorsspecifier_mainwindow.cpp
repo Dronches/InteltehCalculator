@@ -8,7 +8,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {CommaExists, "Разделитель уже введён"},
     {AlreadyClearedCalculator, "Область калькулятора уже очищена"},
     {NotExistToDeleteCalculator, "Нет символов для удаления"},
-    {RepeatOperation, "Операция уже применена"}
+    {RepeatOperation, "Операция уже применена"},
+    {AlreadyExistNotTimeOperation, "Невозможно изменить время, т.к. выбрана другая операция"}
 };
 
 ErrorsSpecifier_MainWindow::ErrorsSpecifier_MainWindow()

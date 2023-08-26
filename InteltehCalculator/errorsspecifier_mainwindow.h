@@ -22,7 +22,8 @@ public:
         CommaExists = 3,
         AlreadyClearedCalculator = 4,
         NotExistToDeleteCalculator = 5,
-        RepeatOperation = 6
+        RepeatOperation = 6,
+        AlreadyExistNotTimeOperation = 7
     };
 
     ErrorsSpecifier_MainWindow();

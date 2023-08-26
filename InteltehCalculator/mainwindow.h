@@ -68,6 +68,26 @@ private slots:
      */
     void on_buttonOperation_Sum_clicked();
 
+    /*!
+     * \brief Обработка нажатия на операцию вычитания
+     */
+    void on_buttonOperation_Mines_clicked();
+
+    /*!
+     * \brief Обработка нажатия на операцию умножения
+     */
+    void on_buttonOperation_Mult_clicked();
+
+    /*!
+     * \brief Обработка нажатия на операцию деления
+     */
+    void on_buttonOperation_Div_clicked();
+
+    /*!
+     * \brief Обработка установки времени
+     */
+    void on_buttonSpecial_T_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
