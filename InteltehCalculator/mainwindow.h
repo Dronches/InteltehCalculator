@@ -6,6 +6,7 @@
 #include <QSettings>
 #include "verifyinfo_mainwindow.h"
 #include "errorsspecifier_mainwindow.h"
+#include "calculatoroperationqueues.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -71,6 +72,8 @@ private:
     static QString settings_AppName;
     /// Путь к геометрии главного окна
     static QString settings_MainWindow_Geometry;
+    /// объект взаимодействия с очередями, операциями и хранения текущих значений
+    CalculatorOperationQueues* calculatorOperationQueues;
 
     /*!
      * \brief Функция очистки области калькулятора

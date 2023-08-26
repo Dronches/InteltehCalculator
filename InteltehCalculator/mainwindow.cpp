@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    calculatorOperationQueues = new CalculatorOperationQueues();
+
     // Подключение клавиш чисел к обработчику кнопок
     connect(ui->buttonDigit_0, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
     connect(ui->buttonDigit_1, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
@@ -29,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    delete calculatorOperationQueues;
     delete ui;
 }
 
