@@ -47,6 +47,11 @@ private slots:
      */
     void ButtonDigitSlot();
 
+    /*!
+     * \brief Обработка нажатия на кнопку разделителя
+     */
+    void on_buttonSpecial_Comma_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;

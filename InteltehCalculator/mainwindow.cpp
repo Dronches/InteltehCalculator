@@ -86,3 +86,14 @@ void MainWindow::closeEvent(QCloseEvent *event)
 }
 
 
+
+void MainWindow::on_buttonSpecial_Comma_clicked()
+{
+    if (VerifyInfo_MainWindow::VerifyInput_CommaNotExist(ui->labelDinamic_CurrentOperand->text()))
+        ui->labelDinamic_CurrentOperand->setText(ui->labelDinamic_CurrentOperand->text()+VerifyInfo_MainWindow::getCommaSymbol());
+    else
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::CommaExists));
+
+}
+

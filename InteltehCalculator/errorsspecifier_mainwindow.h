@@ -18,7 +18,8 @@ public:
     {
         NoError = 0,
         UnknownError= 1,
-        DigitOverflow = 2
+        DigitOverflow = 2,
+        CommaExists = 3
     };
 
     ErrorsSpecifier_MainWindow();

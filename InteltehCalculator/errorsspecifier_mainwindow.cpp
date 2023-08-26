@@ -4,7 +4,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
 {
     {NoError, "Нет ошибки"},
     {UnknownError, "Неизвестная ошибка"},
-    {DigitOverflow, "Переполнение области числового ввода"}
+    {DigitOverflow, "Переполнение области числового ввода"},
+    {CommaExists, "Разделитель уже введён"}
 };
 
 ErrorsSpecifier_MainWindow::ErrorsSpecifier_MainWindow()
