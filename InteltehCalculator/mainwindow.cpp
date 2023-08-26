@@ -7,6 +7,7 @@ QString MainWindow::settings_AppName = "InteltehCalculator";
 
 QString MainWindow::settings_MainWindow_Geometry = "MainWindow/geometry";
 
+QString MainWindow::consoleStartString = "> ";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -47,7 +48,7 @@ void MainWindow::PrintError_MainWindow(bool needClear, QString messageError)
 {
     // Вывод ошибки в консоль
     ui->textEdit_Console->setTextColor(Qt::red);
-    ui->textEdit_Console->append(messageError);
+    ui->textEdit_Console->append(consoleStartString + messageError);
 
     // Очистка области калькулятора
     if (needClear)
@@ -57,7 +58,7 @@ void MainWindow::PrintError_MainWindow(bool needClear, QString messageError)
 void MainWindow::PrintSuccess_MainWindow(QString messageSuccess)
 {
     ui->textEdit_Console->setTextColor(Qt::green);
-    ui->textEdit_Console->append(messageSuccess);
+    ui->textEdit_Console->append(consoleStartString + messageSuccess);
 }
 
 void MainWindow::ClearCalculatorWindow()

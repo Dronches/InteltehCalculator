@@ -102,6 +102,8 @@ private:
     static QString settings_AppName;
     /// Путь к геометрии главного окна
     static QString settings_MainWindow_Geometry;
+    /// Строка, с которой начинается единица сообщения в консоли
+    static QString consoleStartString;
     /// объект взаимодействия с очередями, операциями и хранения текущих значений
     CalculatorOperationQueues* calculatorOperationQueues;
 
