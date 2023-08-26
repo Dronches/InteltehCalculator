@@ -9,6 +9,7 @@ TemplateCollection<T>::TemplateCollection()
 template <class T>
 TemplateCollection<T>::~TemplateCollection()
 {
+    // безопасное удаление всех элементов в очереди
     while(GetSize()>0)
     {
         delete queueData.front();
