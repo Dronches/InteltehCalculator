@@ -44,9 +44,9 @@ QString ResultInfo::GetComputationErrorString()
 
 QString ResultInfo::GetResult()
 {
-    return QString::number(requestInfo->GetleftOperand(), 'f')+
-            CalculatorOperationsLib::GetOperationTypeSign(requestInfo->GetTypeOperation())+
-            QString::number(requestInfo->GetRightOperand(), 'f')+
+    return "(" + QString::number(requestInfo->GetleftOperand(), 'f')+ ")" +
+            CalculatorOperationsLib::GetOperationTypeSign(requestInfo->GetTypeOperation()) +
+            "(" + QString::number(requestInfo->GetRightOperand(), 'f') + ")" +
             "="+
             ((computationError==CalculatorOperationsLib::TypesComputationErrors::NoComputationError)?
                  QString::number(result, 'f') :
