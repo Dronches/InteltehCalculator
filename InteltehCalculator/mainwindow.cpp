@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    calculatorOperationQueues = new CalculatorOperationQueues();
+    operationTimeInfo = new OperationTimeInfo();
 
     // Подключение клавиш чисел к обработчику кнопок
     connect(ui->buttonDigit_0, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete calculatorOperationQueues;
+    delete operationTimeInfo;
     delete ui;
 }
 
@@ -87,7 +87,7 @@ void MainWindow::AcceptOperation(CalculatorOperationsLib::TypesOperation typeOpe
 
         // Сохранение операции
         ui->labelDinamic_Operation->setText(textOperation);
-        calculatorOperationQueues->SetCurrentOperation(typeOperation);
+        operationTimeInfo->SetCurrentOperation(typeOperation);
     }
 }
 
@@ -243,7 +243,7 @@ void MainWindow::on_buttonSpecial_T_clicked()
         if (VerifyInfo_MainWindow::VerifyInput_MaxTimeOperation(timeOperation))
         {
             // применить введённое время операции
-            calculatorOperationQueues->SetCurrentOperationTime(timeOperation);
+            operationTimeInfo->SetCurrentOperationTime(timeOperation);
             ui->labelDinamic_TimeOperations->setText(ui->labelDinamic_CurrentOperand->text());
             PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
             ClearCalculatorWindow();

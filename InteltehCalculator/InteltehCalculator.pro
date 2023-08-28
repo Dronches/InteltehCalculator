@@ -9,19 +9,19 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    calculatoroperationqueues.cpp \
     errorsspecifier_mainwindow.cpp \
     main.cpp \
     mainwindow.cpp \
     operationinfo.cpp \
+    operationtimeinfo.cpp \
     templatecollection.cpp \
     verifyinfo_mainwindow.cpp
 
 HEADERS += \
-    calculatoroperationqueues.h \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
     operationinfo.h \
+    operationtimeinfo.h \
     templatecollection.h \
     verifyinfo_mainwindow.h
 

@@ -6,7 +6,7 @@
 #include <QSettings>
 #include "verifyinfo_mainwindow.h"
 #include "errorsspecifier_mainwindow.h"
-#include "calculatoroperationqueues.h"
+#include "operationtimeinfo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -109,8 +109,8 @@ private:
     static QString settings_MainWindow_Geometry;
     /// Строка, с которой начинается единица сообщения в консоли
     static QString consoleStartString;
-    /// объект взаимодействия с очередями, операциями и хранения текущих значений
-    CalculatorOperationQueues* calculatorOperationQueues;
+    /// Объект хранения текущей операции и информации о времени операций
+    OperationTimeInfo* operationTimeInfo;
 
     /*!
      * \brief Функция очистки области калькулятора

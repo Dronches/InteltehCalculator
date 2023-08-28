@@ -1,17 +1,14 @@
-#ifndef CALCULATOROPERATIONQUEUES_H
-#define CALCULATOROPERATIONQUEUES_H
+#ifndef OPERATIONTIMEINFO_H
+#define OPERATIONTIMEINFO_H
 
 #include <QObject>
 #include <calculatoroperationslib.h>
 
 /*!
  * \brief Класс, организующий сохранение операции и текущего времени операции
- * TODO: использование в качестве адаптера относительно класса-контейнера очередей
- * Предполагается, что данный класс в дальнейшем может использовать механизм Signal-Slot
  */
-class CalculatorOperationQueues : public QObject
+class OperationTimeInfo
 {
-    Q_OBJECT
 
     /// Текущий тип операции
     CalculatorOperationsLib::TypesOperation currentOperation;
@@ -21,7 +18,9 @@ class CalculatorOperationQueues : public QObject
 
 public:
 
-    explicit CalculatorOperationQueues(QObject *parent = nullptr);
+    OperationTimeInfo();
+
+    OperationTimeInfo(CalculatorOperationsLib::TypesOperation operation, int operationTime);
 
     /*!
      * \brief Получить значение текущей операции
@@ -47,9 +46,6 @@ public:
      */
     void SetCurrentOperationTime(int time);
 
-
-signals:
-
 };
 
-#endif // CALCULATOROPERATIONQUEUES_H
+#endif // OPERATIONTIMEINFO_H
