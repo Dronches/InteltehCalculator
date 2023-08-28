@@ -48,10 +48,21 @@ public:
      * \param typeError тип ошибки
      * \return Содержание ошибки
      */
-    QString GetOperationErrorMessage(TypesComputationErrors typeError);
+    static QString GetOperationErrorMessage(TypesComputationErrors typeError);
+
+
+    /*!
+     * \brief Получить значок (или строку) операции по типу операции
+     * \param typeOperation тип операции
+     * \return Символ (или строка) обозначающая операции
+     */
+    static QString GetOperationTypeSign(TypesOperation typeOperation);
 private:
     /// Словарь соответсвия ошибок и их текстовых значений
     static const QMap<TypesComputationErrors, QString> errorsComputationMap;
+
+    /// Словарь соответсвия операций и их символов
+    static const QMap<TypesOperation, QString> typesOperationMap;
 
 };
 

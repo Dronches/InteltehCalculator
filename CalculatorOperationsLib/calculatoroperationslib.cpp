@@ -8,6 +8,14 @@ const QMap<CalculatorOperationsLib::TypesComputationErrors, QString> CalculatorO
     {DivisionByZero, "Ошибка деления на 0"}
 };
 
+const QMap<CalculatorOperationsLib::TypesOperation, QString> CalculatorOperationsLib::typesOperationMap
+{
+    {None, ""},
+    {Plus, "+"},
+    {Mines, "-"},
+    {Multiplicaion, "*"},
+    {Division, "/"}
+};
 
 CalculatorOperationsLib::CalculatorOperationsLib()
 {
@@ -80,4 +88,9 @@ double CalculatorOperationsLib::dolt(TypesOperation TypeWork, double OperandA, d
 QString CalculatorOperationsLib::GetOperationErrorMessage(TypesComputationErrors typeError)
 {
     return errorsComputationMap[typeError];
+}
+
+QString CalculatorOperationsLib::GetOperationTypeSign(TypesOperation typeOperation)
+{
+        return typesOperationMap[typeOperation];
 }
