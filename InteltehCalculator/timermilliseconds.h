@@ -25,7 +25,7 @@ public:
 
     /*!
      * \brief Ожидание для имитации задержки операции
-     * \param millisecodsDuration общее время задержки в милисекундах
+     * \param millisecodsDuration общее время задержки в миллисекунд
      */
     void WaitForStopTimer(int millisecodsDuration);
 
@@ -35,8 +35,8 @@ public:
     static void ThreadSleep();
 
     /*!
-     * \brief Ожидание потока определённое число милисекунд, заданное параметром
-     * \param milliseconds число милисекунд ожидания
+     * \brief Ожидание потока определённое число миллисекунд, заданное параметром
+     * \param milliseconds число миллисекунд ожидания
      */
     static void ThreadSleep(int milliseconds);
 };

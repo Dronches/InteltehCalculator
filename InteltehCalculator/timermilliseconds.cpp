@@ -1,5 +1,7 @@
 #include "timermilliseconds.h"
 
+const int TimerMilliseconds::milliTimeSleep = 100;
+
 TimerMilliseconds::TimerMilliseconds()
 {
 
@@ -38,5 +40,3 @@ void TimerMilliseconds::ThreadSleep(int milliseconds)
                 );
 
 }
-
-const int TimerMilliseconds::milliTimeSleep = 100;
