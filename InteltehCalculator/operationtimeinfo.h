@@ -23,6 +23,9 @@ public:
 
     OperationTimeInfo(CalculatorOperationsLib::TypesOperation operation, int operationTime);
 
+    virtual ~OperationTimeInfo();
+
+
     /*!
      * \brief Получить значение текущей операции
      * \return Значение текущей операции

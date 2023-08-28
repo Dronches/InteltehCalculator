@@ -15,6 +15,10 @@ OperationTimeInfo::OperationTimeInfo(CalculatorOperationsLib::TypesOperation ope
 }
 
 
+OperationTimeInfo::~OperationTimeInfo()
+{
+}
+
 
 CalculatorOperationsLib::TypesOperation OperationTimeInfo::GetCurrentOperation()
 {
