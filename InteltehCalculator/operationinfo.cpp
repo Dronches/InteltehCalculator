@@ -14,7 +14,7 @@ double OperationInfo::GetleftOperand()
 
 double OperationInfo::GetRightOperand()
 {
-    return leftOperand;
+    return rightOperand;
 }
 
 CalculatorOperationsLib::TypesOperation OperationInfo::GetTypeOperation()
