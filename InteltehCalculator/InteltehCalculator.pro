@@ -14,6 +14,7 @@ SOURCES += \
     mainwindow.cpp \
     operationinfo.cpp \
     operationtimeinfo.cpp \
+    resultinfo.cpp \
     templatecollection.cpp \
     verifyinfo_mainwindow.cpp
 
@@ -22,6 +23,7 @@ HEADERS += \
     mainwindow.h \
     operationinfo.h \
     operationtimeinfo.h \
+    resultinfo.h \
     templatecollection.h \
     verifyinfo_mainwindow.h
 
