@@ -8,6 +8,7 @@
 #include "errorsspecifier_mainwindow.h"
 #include "operationtimeinfo.h"
 #include "collectionscontainer.h"
+#include "calculatoroperationslib.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -99,6 +100,11 @@ private slots:
      */
     void on_buttonConsole_Clear_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку добавления операции в очередь
+     */
+    void on_buttonSpecial_Equal_clicked();
+
 private:
     /// Отображение главного окна
     Ui::MainWindow *ui;
@@ -127,9 +133,15 @@ private:
 
     /*!
      * \brief Напечатать сообщение в консоли зелёным цветом
-     * \param Сообщение для печати
+     * \param messageSuccess Сообщение для печати
      */
     void PrintSuccess_MainWindow(QString messageSuccess);
+
+    /*!
+     * \brief Напечатать сообщение - запрос
+     * \param messageRequest Сообщение запроса
+     */
+    void PrintRequest_MainWindow(QString messageRequest);
 
     /*!
      * \brief AcceptOperation Применить операцию на интерфейсе калькулятора в соответствии с проверками

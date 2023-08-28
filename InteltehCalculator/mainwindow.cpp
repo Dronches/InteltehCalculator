@@ -62,11 +62,19 @@ void MainWindow::PrintSuccess_MainWindow(QString messageSuccess)
     ui->textEdit_Console->append(consoleStartString + messageSuccess);
 }
 
+void MainWindow::PrintRequest_MainWindow(QString messageRequest)
+{
+    PrintSuccess_MainWindow("Запрос: " + messageRequest);
+}
+
 void MainWindow::ClearCalculatorWindow()
 {
+    // Очистка окна
     ui->labelDinamic_CurrentOperand->setText((QString)VerifyInfo_MainWindow::firstSymbol);
     ui->labelDinamic_Operation->setText("");
     ui->labelDinamic_PreviousOperand->setText("");
+    // Очистка данных по операции
+    operationTimeInfo->SetCurrentOperation(CalculatorOperationsLib::TypesOperation::None);
 }
 
 void MainWindow::ClearConsole()
@@ -268,5 +276,29 @@ void MainWindow::on_buttonSpecial_SwitchSign_clicked()
 void MainWindow::on_buttonConsole_Clear_clicked()
 {
     ClearConsole();
+}
+
+
+void MainWindow::on_buttonSpecial_Equal_clicked()
+{
+    // Проверка на наличие операции
+    if (ui->labelDinamic_Operation->text() == "")
+    {
+        PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::UnknownError));
+        return;
+    }
+
+    // Произвести добавление в очередь операций
+    collectionsContainer->PushOperation(operationTimeInfo->GetCurrentOperation(),
+                                ui->labelDinamic_PreviousOperand->text().replace(",", ".").toDouble(),
+                                ui->labelDinamic_CurrentOperand->text().replace(",", ".").toDouble(),
+                                operationTimeInfo->GetCurrentOperationTime());
+    // Произвести печать запроса
+    PrintRequest_MainWindow(ui->labelDinamic_PreviousOperand->text() +
+                            CalculatorOperationsLib::GetOperationTypeSign(operationTimeInfo->GetCurrentOperation()) +
+                            ui->labelDinamic_CurrentOperand->text());
+    // Осуществить очистку
+    ClearCalculatorWindow();
 }
 
