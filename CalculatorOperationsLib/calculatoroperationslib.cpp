@@ -22,7 +22,7 @@ CalculatorOperationsLib::CalculatorOperationsLib()
 
 }
 
-double CalculatorOperationsLib::dolt(TypesOperation TypeWork, double OperandA, double OperandB, TypesComputationErrors* ErrorCode)
+double CalculatorOperationsLib::DoIt(TypesOperation TypeWork, double OperandA, double OperandB, TypesComputationErrors* ErrorCode)
 {
     * ErrorCode = NoComputationError;
 

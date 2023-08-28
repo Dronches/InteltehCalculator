@@ -41,7 +41,7 @@ public:
      * \param ErrorCode код ошибки (при отсутствии ошибки - 0)
      * \return результат выполнения операции (если есть)
      */
-    static double dolt(TypesOperation TypeWork, double OperandA, double OperandB, TypesComputationErrors* ErrorCode);
+    static double DoIt(TypesOperation TypeWork, double OperandA, double OperandB, TypesComputationErrors* ErrorCode);
 
     /*!
      * \brief Получить содержание ошибки по типу ошибки
