@@ -8,14 +8,17 @@ class CALCULATOROPERATIONSLIB_EXPORT CalculatorOperationsLib
 public:
     CalculatorOperationsLib();
 
+    /// Перечислитель типов операции
     enum TypesOperation
     {
-        None = 0,
-        Plus = 1,
-        Mines = 2,
-        Multiplicaion = 3,
-        Division = 4
+        None = 0, // < Отсутсвие операции
+        Plus = 1, // < Сложение
+        Mines = 2, // < Вычитание
+        Multiplicaion = 3, // < Умножение
+        Division = 4 // < Деление
     };
+
+
 
 };
 
