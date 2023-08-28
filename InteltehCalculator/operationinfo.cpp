@@ -1,9 +1,8 @@
 #include "operationinfo.h"
 
 OperationInfo::OperationInfo(CalculatorOperationsLib::TypesOperation typeOperation,
-              double leftOperand, double rightOperand, int timeWork) :
-                typeOperation(typeOperation), leftOperand(leftOperand),
-                rightOperand(rightOperand), timeWork(timeWork)
+              double leftOperand, double rightOperand, int timeOperation) :  OperationTimeInfo(typeOperation, timeOperation),
+               leftOperand(leftOperand), rightOperand(rightOperand)
 {
 }
 
@@ -20,10 +19,10 @@ double OperationInfo::GetRightOperand()
 
 CalculatorOperationsLib::TypesOperation OperationInfo::GetTypeOperation()
 {
-    return typeOperation;
+    return currentOperation;
 }
 
-int OperationInfo::GetTimeWork()
+int OperationInfo::GetOperationTime()
 {
-    return timeWork;
+    return currentOperationTime;
 }

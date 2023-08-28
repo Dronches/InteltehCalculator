@@ -2,16 +2,15 @@
 #define OPERATIONINFO_H
 
 #include "calculatoroperationslib.h"
+#include "operationtimeinfo.h"
 
 /*!
  * \brief Класс хранения информации об операции
  */
-class OperationInfo
+class OperationInfo : protected OperationTimeInfo
 {
-    CalculatorOperationsLib::TypesOperation typeOperation; /// < тип операции
     double leftOperand; /// < левый операнд
     double rightOperand; /// < правый операнд
-    int timeWork; /// < время операции
 
 public:
 
@@ -40,7 +39,7 @@ public:
      * \brief Получить время операции
      * \return время операции
      */
-    int GetTimeWork();
+    int GetOperationTime();
 
 
 };

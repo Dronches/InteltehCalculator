@@ -9,6 +9,7 @@
  */
 class OperationTimeInfo
 {
+protected:
 
     /// Текущий тип операции
     CalculatorOperationsLib::TypesOperation currentOperation;
