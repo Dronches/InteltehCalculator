@@ -1,6 +1,6 @@
 #include "timermilliseconds.h"
 
-const int TimerMilliseconds::milliTimeSleep = 1;
+const int TimerMilliseconds::milliTimeSleep = 100;
 
 TimerMilliseconds::TimerMilliseconds()
 {
@@ -14,13 +14,15 @@ void TimerMilliseconds::StartTimer()
 
 void TimerMilliseconds::WaitForStopTimer(int millisecodsDuration)
 {
-    // При наличии остатка времени производить ожидание (отрицательные значения не запукают ожидание)
-    std::this_thread::sleep_for(
-                // Расчёт оставшегося времени ожидания
-                std::chrono::milliseconds(millisecodsDuration) -
-                                std::chrono::duration_cast<std::chrono::milliseconds>
-                                    (std::chrono::steady_clock::now() - StartTime)
-                );
+    // Расчёт оставшегося времени ожидания
+    std::chrono::milliseconds timeWait = std::chrono::milliseconds(millisecodsDuration) -
+                    std::chrono::duration_cast<std::chrono::milliseconds>
+                        (std::chrono::steady_clock::now() - StartTime);
+    // При наличии остатка времени производить ожидание
+    if (timeWait.count()>0)
+        std::this_thread::sleep_for(
+                    timeWait
+                    );
 
 
 }

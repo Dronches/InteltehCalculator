@@ -27,7 +27,7 @@ CalculatorOperationsLib::TypesOperation OperationTimeInfo::GetCurrentOperation()
 
 int OperationTimeInfo::GetCurrentOperationTime()
 {
-    return currentOperation;
+    return currentOperationTime;
 }
 
 
