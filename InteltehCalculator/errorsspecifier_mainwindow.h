@@ -16,19 +16,19 @@ public:
     /// Перечислитель видов ошибок ввода MainWindow
     enum MainWindow_Errors
     {
-        NoError = 0,
-        UnknownError= 1,
-        DigitOverflow = 2,
-        CommaExists = 3,
-        AlreadyClearedCalculator = 4,
-        NotExistToDeleteCalculator = 5,
-        RepeatOperation = 6,
-        AlreadyExistNotTimeOperation = 7,
-        TimeIsNotInt = 8,
-        TimeIsNegative = 9,
-        TimeOperationOverflow = 10,
-        CantAddMinesToZero = 11,
-        NotSelectedOperation = 12
+        NoError = 0, // < ошибка отсутствует
+        UnknownError= 1, // < неизвестная ошибка
+        DigitOverflow = 2, // < переполнение по ограничению кол-ва чисел
+        CommaExists = 3, // < наличие в числе запятой (при повторном вводе запятой)
+        AlreadyClearedCalculator = 4, // < калькулятор уже очищен
+        NotExistToDeleteCalculator = 5, // < нет символов для удаления
+        RepeatOperation = 6, // < ошибка повтора ввода операции
+        AlreadyExistNotTimeOperation = 7, // < уже существует операция не времени
+        TimeIsNotInt = 8, // < время не целочисленное
+        TimeIsNegative = 9, // < время отрицательное
+        TimeOperationOverflow = 10, // < переполнение максимального времени операции
+        CantAddMinesToZero = 11, // < невозможность применить отрицательность к 0
+        NotSelectedOperation = 12 // < операция не выбрана
     };
 
     ErrorsSpecifier_MainWindow();
