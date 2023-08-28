@@ -4,9 +4,12 @@
 #include <QLocale>
 #include <QTranslator>
 #include <memory>
+#include <exception>
 
 #include "collectionscontainer.h"
 #include "threadcomputationcollections.h"
+#include "mutexexception.h"
+
 
 /// Объект потока вычислений
 pthread_t threadComputation;
@@ -40,21 +43,35 @@ int main(int argc, char *argv[])
         }
     }
 
-    // Создание разделяемого указателя на контейнер очередей
-    std::shared_ptr<CollectionsContainer> collectionsContainer =
-            std::make_shared<CollectionsContainer>();
+    try {
+        // Создание разделяемого указателя на контейнер очередей
+        std::shared_ptr<CollectionsContainer> collectionsContainer =
+                std::make_shared<CollectionsContainer>();
 
-    // Создание объекта выполнения операций с очередями
-    ThreadComputationCollections* threadComputationCollections =
-            new ThreadComputationCollections(collectionsContainer);
+        // Создание объекта выполнения операций с очередями
+        ThreadComputationCollections* threadComputationCollections =
+                new ThreadComputationCollections(collectionsContainer);
 
-    // Создание потока для выполнения операций с очередями
-    if (pthread_create(&threadComputation, NULL, thread_ComputationPerformer, (void*)threadComputationCollections) != 0)
-        return 1;
+        // Создание потока для выполнения операций с очередями
+        if (pthread_create(&threadComputation, NULL, thread_ComputationPerformer, (void*)threadComputationCollections) != 0)
+            return 1;
 
-    // Отображение окна и инициализация его обработчика
-    MainWindow w(collectionsContainer);
-    w.ReadSettings(); // чтение параметров
-    w.show(); // отображение
-    return a.exec();
+        // Отображение окна и инициализация его обработчика
+        MainWindow w(collectionsContainer);
+        w.ReadSettings(); // чтение параметров
+        w.show(); // отображение
+        return a.exec();
+    }
+    // Обработка исключения mutex
+    catch (MutexException &ex) {
+        return 2;
+    }
+    // обработка программных исключений
+    catch (std::exception &ex) {
+        return 3;
+    }
+    // обработка системных исключений
+    catch (...) {
+        return 4;
+    }
 }

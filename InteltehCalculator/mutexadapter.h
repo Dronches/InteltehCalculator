@@ -2,7 +2,7 @@
 #define MUTEXADAPTER_H
 
 #include <pthread.h>
-#include <exception>
+#include "mutexexception.h"
 
 /*!
  * \brief Класс, организующий использование мьютекса

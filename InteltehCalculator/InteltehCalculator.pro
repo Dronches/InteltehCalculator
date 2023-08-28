@@ -14,6 +14,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mutexadapter.cpp \
+    mutexexception.cpp \
     requestinfo.cpp \
     requesttimeinfo.cpp \
     resultinfo.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
     mutexadapter.h \
+    mutexexception.h \
     requestinfo.h \
     requesttimeinfo.h \
     resultinfo.h \
