@@ -2,9 +2,14 @@
 #define CALCULATOROPERATIONSLIB_H
 
 #include "CalculatorOperationsLib_global.h"
+#include <QMap>
 
+/*!
+ * \brief Бибилиотека, операделяющая функции выполнения операций
+ */
 class CALCULATOROPERATIONSLIB_EXPORT CalculatorOperationsLib
 {
+
 public:
     CalculatorOperationsLib();
 
@@ -18,7 +23,35 @@ public:
         Division = 4 // < Деление
     };
 
+    /// Перечислитель типов ошибок вычислений
+    /// (предполагается, что переполнение невозможно с помощью ограничения ввода UI)
+    enum TypesComputationErrors
+    {
+        NoComputationError = 0, // < отсутсвие ошибки
+        UnknownComputationError = 1, // < неизвестная ошибка
+        UnknownOperationError = 2, // < неизвестная операция
+        DivisionByZero = 3 // < деление на 0
+    };
 
+    /*!
+     * \brief Функция выполнения арифметической операции
+     * \param TypeWork тип операции
+     * \param OperandA левый операнд
+     * \param OperandB правый операнд
+     * \param ErrorCode код ошибки (при отсутствии ошибки - 0)
+     * \return результат выполнения операции (если есть)
+     */
+    static double dolt(TypesOperation TypeWork, double OperandA, double OperandB, TypesComputationErrors* ErrorCode);
+
+    /*!
+     * \brief Получить содержание ошибки по типу ошибки
+     * \param typeError тип ошибки
+     * \return Содержание ошибки
+     */
+    QString GetOperationErrorMessage(TypesComputationErrors typeError);
+private:
+    /// Словарь соответсвия ошибок и их текстовых значений
+    static const QMap<TypesComputationErrors, QString> errorsComputationMap;
 
 };
 
