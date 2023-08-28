@@ -18,6 +18,22 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    /// Отображение главного окна
+    Ui::MainWindow *ui;
+    /// Наименование организации
+    static QString settings_WorkPlace;
+    /// Наименование приложения
+    static QString settings_AppName;
+    /// Путь к геометрии главного окна
+    static QString settings_MainWindow_Geometry;
+    /// Строка, с которой начинается единица сообщения в консоли
+    static QString consoleStartString;
+    /// Объект хранения текущей операции и информации о времени операций
+    OperationTimeInfo* operationTimeInfo;
+    /// Объект взаимодействия с очередями (shared - для многопоточности)
+    std::shared_ptr<CollectionsContainer> collectionsContainer;
+
+
 public:
 
     MainWindow(std::shared_ptr<CollectionsContainer> collectionsContainer, QWidget *parent = nullptr);
@@ -118,21 +134,6 @@ private slots:
     void on_buttonSpecial_Equal_clicked();
 
 private:
-    /// Отображение главного окна
-    Ui::MainWindow *ui;
-    /// Наименование организации
-    static QString settings_WorkPlace;
-    /// Наименование приложения
-    static QString settings_AppName;
-    /// Путь к геометрии главного окна
-    static QString settings_MainWindow_Geometry;
-    /// Строка, с которой начинается единица сообщения в консоли
-    static QString consoleStartString;
-    /// Объект хранения текущей операции и информации о времени операций
-    OperationTimeInfo* operationTimeInfo;
-    /// Объект взаимодействия с очередями (shared - для многопоточности)
-    std::shared_ptr<CollectionsContainer> collectionsContainer;
-
     /*!
      * \brief Функция очистки области калькулятора
      */

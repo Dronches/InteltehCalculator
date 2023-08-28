@@ -5,6 +5,9 @@
 #include "collectionscontainer.h"
 #include "calculatoroperationslib.h"
 
+/*!
+ * \brief Класс для организации выполнения вычислений на отдельном потоке
+ */
 class ThreadComputationCollections
 {
 
