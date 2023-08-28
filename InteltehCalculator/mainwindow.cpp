@@ -9,12 +9,13 @@ QString MainWindow::settings_MainWindow_Geometry = "MainWindow/geometry";
 
 QString MainWindow::consoleStartString = "> ";
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(std::shared_ptr<CollectionsContainer> collectionsContainer, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    // инициализация объектов
+    this->collectionsContainer = collectionsContainer;
     operationTimeInfo = new OperationTimeInfo();
 
     // Подключение клавиш чисел к обработчику кнопок

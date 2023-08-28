@@ -3,22 +3,13 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <memory>
 
-#include <queue>
-#include <QDebug>
+#include "collectionscontainer.h"
+
 
 int main(int argc, char *argv[])
 {
-
-    std::queue<int*> q;
-    int* i = new int(5);
-    q.push(i);
-    int *p = q.front();
-    q.pop();
-    qDebug() << q.size();
-    qDebug() << *p;
-
-
     QApplication a(argc, argv);
 
     QTranslator translator;
@@ -30,8 +21,12 @@ int main(int argc, char *argv[])
             break;
         }
     }
+    // Создание разделяемого указателя на контейнер очередей
+    std::shared_ptr<CollectionsContainer> collectionsContainer =
+            std::make_shared<CollectionsContainer>();
 
-    MainWindow w;
+
+    MainWindow w(collectionsContainer);
     w.show();
     w.ReadSettings();
     return a.exec();

@@ -2,11 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QMessageBox>
 #include <QSettings>
+#include <memory>
 #include "verifyinfo_mainwindow.h"
 #include "errorsspecifier_mainwindow.h"
 #include "operationtimeinfo.h"
+#include "collectionscontainer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,7 @@ class MainWindow : public QMainWindow
 
 public:
 
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(std::shared_ptr<CollectionsContainer> collectionsContainer, QWidget *parent = nullptr);
     virtual ~MainWindow();
 
     /*!
@@ -111,6 +112,8 @@ private:
     static QString consoleStartString;
     /// Объект хранения текущей операции и информации о времени операций
     OperationTimeInfo* operationTimeInfo;
+    /// Объект взаимодействия с очередями (shared - для многопоточности)
+    std::shared_ptr<CollectionsContainer> collectionsContainer;
 
     /*!
      * \brief Функция очистки области калькулятора
