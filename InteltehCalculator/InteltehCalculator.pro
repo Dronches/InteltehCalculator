@@ -9,9 +9,11 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    collectionscontainer.cpp \
     errorsspecifier_mainwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    mutexadapter.cpp \
     operationinfo.cpp \
     operationtimeinfo.cpp \
     resultinfo.cpp \
@@ -19,8 +21,10 @@ SOURCES += \
     verifyinfo_mainwindow.cpp
 
 HEADERS += \
+    collectionscontainer.h \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
+    mutexadapter.h \
     operationinfo.h \
     operationtimeinfo.h \
     resultinfo.h \
