@@ -2,7 +2,8 @@
 
 MutexAdapter::MutexAdapter()
 {
-
+    if (pthread_mutex_init(&mutex, NULL) != 0)
+        throw std::exception();
 }
 
 MutexAdapter::~MutexAdapter()
