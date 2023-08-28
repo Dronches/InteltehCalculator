@@ -4,6 +4,10 @@
 #include "operationinfo.h"
 #include "calculatoroperationslib.h"
 
+
+/*!
+ * \brief Класс хранения операции и её результата с ошибкой (при наличии)
+ */
 class ResultInfo
 {
     /// Содержание информации операции
