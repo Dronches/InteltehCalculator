@@ -27,7 +27,8 @@ public:
         TimeIsNotInt = 8,
         TimeIsNegative = 9,
         TimeOperationOverflow = 10,
-        CantAddMinesToZero = 11
+        CantAddMinesToZero = 11,
+        NotSelectedOperation = 12
     };
 
     ErrorsSpecifier_MainWindow();

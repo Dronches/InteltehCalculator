@@ -13,7 +13,8 @@ const QMap<ErrorsSpecifier_MainWindow::MainWindow_Errors, QString> ErrorsSpecifi
     {TimeIsNotInt, "Время операции должно быть целочисленным"},
     {TimeIsNegative, "Время операции не может быть отрицательным"},
     {TimeOperationOverflow, "Время операции в секундах не может превышать максимальное значение"},
-    {CantAddMinesToZero, "Число 0 не является отрицательным"}
+    {CantAddMinesToZero, "Число 0 не является отрицательным"},
+    {NotSelectedOperation, "Операция не выбрана"}
 };
 
 ErrorsSpecifier_MainWindow::ErrorsSpecifier_MainWindow()

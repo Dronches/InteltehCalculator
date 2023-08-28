@@ -285,7 +285,7 @@ void MainWindow::on_buttonSpecial_Equal_clicked()
     if (ui->labelDinamic_Operation->text() == "")
     {
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
-                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::UnknownError));
+                                  ErrorsSpecifier_MainWindow::MainWindow_Errors::NotSelectedOperation));
         return;
     }
 
@@ -295,9 +295,9 @@ void MainWindow::on_buttonSpecial_Equal_clicked()
                                 ui->labelDinamic_CurrentOperand->text().replace(",", ".").toDouble(),
                                 operationTimeInfo->GetCurrentOperationTime());
     // Произвести печать запроса
-    PrintRequest_MainWindow(ui->labelDinamic_PreviousOperand->text() +
+    PrintRequest_MainWindow("(" + ui->labelDinamic_PreviousOperand->text() + ")" +
                             CalculatorOperationsLib::GetOperationTypeSign(operationTimeInfo->GetCurrentOperation()) +
-                            ui->labelDinamic_CurrentOperand->text());
+                            "(" + ui->labelDinamic_CurrentOperand->text() + ")");
     // Осуществить очистку
     ClearCalculatorWindow();
 }
