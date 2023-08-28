@@ -18,8 +18,12 @@ class ResultInfo
     CalculatorOperationsLib::TypesComputationErrors computationError;
 public:
 
-    ResultInfo(OperationInfo* operationInfo, double result,
-               CalculatorOperationsLib::TypesComputationErrors typeComputationError);
+    ResultInfo(OperationInfo* operationInfo,
+               CalculatorOperationsLib::TypesComputationErrors computationError);
+
+    ResultInfo(OperationInfo* operationInfo,
+               CalculatorOperationsLib::TypesComputationErrors computationError,
+               double result);
 
     ~ResultInfo();
 

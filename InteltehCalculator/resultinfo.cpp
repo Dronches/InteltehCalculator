@@ -1,11 +1,20 @@
 #include "resultinfo.h"
 
-ResultInfo::ResultInfo(OperationInfo* operationInfo, double result,
-                       CalculatorOperationsLib::TypesComputationErrors computationError)
+
+ResultInfo::ResultInfo(OperationInfo* operationInfo,
+           CalculatorOperationsLib::TypesComputationErrors computationError) :
+                ResultInfo(operationInfo, computationError, 0)
+{
+
+}
+
+ResultInfo::ResultInfo(OperationInfo* operationInfo,
+                       CalculatorOperationsLib::TypesComputationErrors computationError,
+                       double result)
 {
     this->operationInfo = operationInfo;
-    this->result = result;
     this->computationError = computationError;
+    this->result = result;
 }
 
 ResultInfo::~ResultInfo()
