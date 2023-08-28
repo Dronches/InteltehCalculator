@@ -1,5 +1,5 @@
-#ifndef OPERATIONTIMEINFO_H
-#define OPERATIONTIMEINFO_H
+#ifndef REQUESTTIMEINFO_H
+#define REQUESTTIMEINFO_H
 
 #include <QObject>
 #include <calculatoroperationslib.h>
@@ -7,7 +7,7 @@
 /*!
  * \brief Класс, организующий сохранение операции и текущего времени операции
  */
-class OperationTimeInfo
+class RequestTimeInfo
 {
 protected:
 
@@ -19,11 +19,11 @@ protected:
 
 public:
 
-    OperationTimeInfo();
+    RequestTimeInfo();
 
-    OperationTimeInfo(CalculatorOperationsLib::TypesOperation operation, int operationTime);
+    RequestTimeInfo(CalculatorOperationsLib::TypesOperation operation, int operationTime);
 
-    virtual ~OperationTimeInfo();
+    virtual ~RequestTimeInfo();
 
 
     /*!
@@ -52,4 +52,4 @@ public:
 
 };
 
-#endif // OPERATIONTIMEINFO_H
+#endif // REQUESTTIMEINFO_H

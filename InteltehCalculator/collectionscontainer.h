@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "templatecollection.h"
-#include "operationinfo.h"
+#include "requestinfo.h"
 #include "resultinfo.h"
 #include "calculatoroperationslib.h"
 
@@ -16,7 +16,7 @@ class CollectionsContainer : public QObject
     Q_OBJECT
 
     /// очередь операций
-    TemplateCollection<OperationInfo> operationQueue;
+    TemplateCollection<RequestInfo> requestQueue;
     /// очередь результатов
     TemplateCollection<ResultInfo> resultQueue;
 
@@ -30,14 +30,14 @@ public:
      * \param rightOperand правый операнд
      * \param timeWork время выполнения операции
      */
-    void PushOperation(CalculatorOperationsLib::TypesOperation operation,
+    void PushRequest(CalculatorOperationsLib::TypesOperation operation,
                        double leftOperand, double rightOperand, int timeWork);
 
     /*!
      * \brief Извлечение операции из начала (без удаления объекта)
      * \return Указатель на данные по операции (nullptr при отсутствии операций в очереди)
      */
-    OperationInfo* PopOperation();
+    RequestInfo* PopRequest();
 
     /*!
      * \brief Добавление операции с вычисленным результатом в очередь операций
@@ -45,7 +45,7 @@ public:
      * \param typeComputationError тип ошибки вычисления
      * \param result значение результата (при наличии)
      */
-    void PushResult(OperationInfo* operationInfo,
+    void PushResult(RequestInfo* requestInfo,
                     CalculatorOperationsLib::TypesComputationErrors typeComputationError,
                     double result);
 

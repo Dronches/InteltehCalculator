@@ -1,20 +1,20 @@
-#ifndef OPERATIONINFO_H
-#define OPERATIONINFO_H
+#ifndef REQUESTINFO_H
+#define REQUESTINFO_H
 
 #include "calculatoroperationslib.h"
-#include "operationtimeinfo.h"
+#include "requesttimeinfo.h"
 
 /*!
  * \brief Класс хранения информации об операции
  */
-class OperationInfo : protected OperationTimeInfo
+class RequestInfo : protected RequestTimeInfo
 {
     double leftOperand; /// < левый операнд
     double rightOperand; /// < правый операнд
 
 public:
 
-    OperationInfo(CalculatorOperationsLib::TypesOperation typeOperation,
+    RequestInfo(CalculatorOperationsLib::TypesOperation typeOperation,
                   double leftOperand, double rightOperand, int timeWork);
 
     /*!
@@ -44,4 +44,4 @@ public:
 
 };
 
-#endif // OPERATIONINFO_H
+#endif // REQUESTINFO_H

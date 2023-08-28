@@ -14,8 +14,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     mutexadapter.cpp \
-    operationinfo.cpp \
-    operationtimeinfo.cpp \
+    requestinfo.cpp \
+    requesttimeinfo.cpp \
     resultinfo.cpp \
     templatecollection.cpp \
     threadcomputationcollections.cpp \
@@ -27,8 +27,8 @@ HEADERS += \
     errorsspecifier_mainwindow.h \
     mainwindow.h \
     mutexadapter.h \
-    operationinfo.h \
-    operationtimeinfo.h \
+    requestinfo.h \
+    requesttimeinfo.h \
     resultinfo.h \
     templatecollection.h \
     threadcomputationcollections.h \

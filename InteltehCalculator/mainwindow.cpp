@@ -16,7 +16,7 @@ MainWindow::MainWindow(std::shared_ptr<CollectionsContainer> collectionsContaine
     ui->setupUi(this);
     // инициализация объектов
     this->collectionsContainer = collectionsContainer;
-    operationTimeInfo = new OperationTimeInfo();
+    requestTimeInfo = new RequestTimeInfo();
 
     // Подключение клавиш чисел к обработчику кнопок
     connect(ui->buttonDigit_0, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
@@ -37,7 +37,7 @@ MainWindow::MainWindow(std::shared_ptr<CollectionsContainer> collectionsContaine
 
 MainWindow::~MainWindow()
 {
-    delete operationTimeInfo;
+    delete requestTimeInfo;
     delete ui;
 }
 
@@ -86,7 +86,7 @@ void MainWindow::ClearCalculatorWindow()
     ui->labelDinamic_Operation->setText("");
     ui->labelDinamic_PreviousOperand->setText("");
     // Очистка данных по операции
-    operationTimeInfo->SetCurrentOperation(CalculatorOperationsLib::TypesOperation::None);
+    requestTimeInfo->SetCurrentOperation(CalculatorOperationsLib::TypesOperation::None);
 }
 
 void MainWindow::ClearConsole()
@@ -108,7 +108,7 @@ void MainWindow::AcceptOperation(CalculatorOperationsLib::TypesOperation typeOpe
 
         // Сохранение операции
         ui->labelDinamic_Operation->setText(textOperation);
-        operationTimeInfo->SetCurrentOperation(typeOperation);
+        requestTimeInfo->SetCurrentOperation(typeOperation);
     }
 }
 
@@ -274,7 +274,7 @@ void MainWindow::on_buttonSpecial_T_clicked()
         if (VerifyInfo_MainWindow::VerifyInput_MaxTimeOperation(timeOperation))
         {
             // применить введённое время операции
-            operationTimeInfo->SetCurrentOperationTime(timeOperation);
+            requestTimeInfo->SetCurrentOperationTime(timeOperation);
             ui->labelDinamic_TimeOperations->setText(ui->labelDinamic_CurrentOperand->text());
             PrintSuccess_MainWindow("Время операции " + ui->labelDinamic_CurrentOperand->text() + " (сек.) успешно применено");
             ClearCalculatorWindow();
@@ -312,13 +312,13 @@ void MainWindow::on_buttonSpecial_Equal_clicked()
     }
 
     // Произвести добавление в очередь операций
-    collectionsContainer->PushOperation(operationTimeInfo->GetCurrentOperation(),
+    collectionsContainer->PushRequest(requestTimeInfo->GetCurrentOperation(),
                                 ui->labelDinamic_PreviousOperand->text().replace(",", ".").toDouble(),
                                 ui->labelDinamic_CurrentOperand->text().replace(",", ".").toDouble(),
-                                operationTimeInfo->GetCurrentOperationTime());
+                                requestTimeInfo->GetCurrentOperationTime());
     // Произвести печать запроса
     PrintRequest_MainWindow("(" + ui->labelDinamic_PreviousOperand->text() + ")" +
-                            CalculatorOperationsLib::GetOperationTypeSign(operationTimeInfo->GetCurrentOperation()) +
+                            CalculatorOperationsLib::GetOperationTypeSign(requestTimeInfo->GetCurrentOperation()) +
                             "(" + ui->labelDinamic_CurrentOperand->text() + ")");
     // Осуществить очистку
     ClearCalculatorWindow();

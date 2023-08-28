@@ -5,32 +5,32 @@ CollectionsContainer::CollectionsContainer(QObject *parent) : QObject(parent)
 
 }
 
-void CollectionsContainer::PushOperation(CalculatorOperationsLib::TypesOperation operation, double leftOperand, double rightOperand, int timeWork)
+void CollectionsContainer::PushRequest(CalculatorOperationsLib::TypesOperation operation, double leftOperand, double rightOperand, int timeWork)
 {
-    OperationInfo* info = new OperationInfo(operation, leftOperand, rightOperand, timeWork);
+    RequestInfo* info = new RequestInfo(operation, leftOperand, rightOperand, timeWork);
 
     // Потокобезопасное добавление операции в конец очереди
-    operationQueue.Wait_for_lock();
-    operationQueue.PushBack(info);
+    requestQueue.Wait_for_lock();
+    requestQueue.PushBack(info);
     // Сигнал изменения количества операций в очереди
-    emit ChangeSizeOperationQueueSignal(operationQueue.GetSize());
-    operationQueue.Unlock();
+    emit ChangeSizeOperationQueueSignal(requestQueue.GetSize());
+    requestQueue.Unlock();
 }
 
 /*!
  * \brief Извлечение операции из начала (без удаления объекта)
  * \return Указатель на данные по операции (nullptr при отсутствии операций в очереди)
  */
-OperationInfo* CollectionsContainer::PopOperation()
+RequestInfo* CollectionsContainer::PopRequest()
 {
-    OperationInfo* info = nullptr;
+    RequestInfo* info = nullptr;
     // Потокобезопасное извлечение операции
-    operationQueue.Wait_for_lock();
-    if (operationQueue.GetSize()!=0)    // Проверка на наличие операции в очереди
-        info = operationQueue.PopFront();
+    requestQueue.Wait_for_lock();
+    if (requestQueue.GetSize()!=0)    // Проверка на наличие операции в очереди
+        info = requestQueue.PopFront();
     // Сигнал изменения количества операций в очереди
-    emit ChangeSizeOperationQueueSignal(operationQueue.GetSize());
-    operationQueue.Unlock();
+    emit ChangeSizeOperationQueueSignal(requestQueue.GetSize());
+    requestQueue.Unlock();
     return info;
 }
 
@@ -42,11 +42,11 @@ OperationInfo* CollectionsContainer::PopOperation()
  * \param typeComputationError тип ошибки вычисления
  * \param result значение результата (при наличии)
  */
-void CollectionsContainer::PushResult(OperationInfo* operationInfo,
+void CollectionsContainer::PushResult(RequestInfo* requestInfo,
                 CalculatorOperationsLib::TypesComputationErrors typeComputationError,
                 double result = 0)
 {
-    ResultInfo* resInfo = new ResultInfo(operationInfo, typeComputationError, result);
+    ResultInfo* resInfo = new ResultInfo(requestInfo, typeComputationError, result);
     // Потокобезопасное добавление операции и её результата в очередь результатов
     resultQueue.Wait_for_lock();
     resultQueue.PushBack(resInfo);

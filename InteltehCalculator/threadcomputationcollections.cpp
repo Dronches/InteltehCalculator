@@ -8,8 +8,8 @@ ThreadComputationCollections::ThreadComputationCollections(std::shared_ptr<Colle
 bool ThreadComputationCollections::PerformDoIt()
 {
    // Извлечь операцию из начала очереди
-   OperationInfo * operation = collectionContainer->PopOperation();
-   if (!operation)
+   RequestInfo * requestInfo = collectionContainer->PopRequest();
+   if (!requestInfo)
    {
        // Пассивное ожидание (для того, чтобы не нагружать потоком процессор)
        timer.ThreadSleep();
@@ -23,14 +23,14 @@ bool ThreadComputationCollections::PerformDoIt()
    timer.StartTimer();
    // выполнение операции
    double result = CalculatorOperationsLib::DoIt(
-               operation->GetTypeOperation(),
-               operation->GetleftOperand(),
-               operation->GetRightOperand(),
+               requestInfo->GetTypeOperation(),
+               requestInfo->GetleftOperand(),
+               requestInfo->GetRightOperand(),
                errorComputations);
    // Выполнение ожидания оставшегося времени в миллисекундах
-   timer.WaitForStopTimer(operation->GetOperationTime()*1000);
+   timer.WaitForStopTimer(requestInfo->GetOperationTime()*1000);
    // добавление результата в конец очереди
-   collectionContainer->PushResult(operation, *errorComputations, result);
+   collectionContainer->PushResult(requestInfo, *errorComputations, result);
 
    delete errorComputations;
    return true;

@@ -1,7 +1,7 @@
 #ifndef RESULTINFO_H
 #define RESULTINFO_H
 
-#include "operationinfo.h"
+#include "requestinfo.h"
 #include "calculatoroperationslib.h"
 
 
@@ -11,17 +11,17 @@
 class ResultInfo
 {
     /// Содержание информации операции
-    OperationInfo* operationInfo;
+    RequestInfo* requestInfo;
     /// Результат операции
     double result;
     /// Тип ошибки (при наличии)
     CalculatorOperationsLib::TypesComputationErrors computationError;
 public:
 
-    ResultInfo(OperationInfo* operationInfo,
+    ResultInfo(RequestInfo* requestInfo,
                CalculatorOperationsLib::TypesComputationErrors computationError);
 
-    ResultInfo(OperationInfo* operationInfo,
+    ResultInfo(RequestInfo* requestInfo,
                CalculatorOperationsLib::TypesComputationErrors computationError,
                double result);
 

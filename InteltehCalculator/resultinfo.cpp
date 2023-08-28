@@ -1,25 +1,25 @@
 #include "resultinfo.h"
 
 
-ResultInfo::ResultInfo(OperationInfo* operationInfo,
+ResultInfo::ResultInfo(RequestInfo* requestInfo,
            CalculatorOperationsLib::TypesComputationErrors computationError) :
-                ResultInfo(operationInfo, computationError, 0)
+                ResultInfo(requestInfo, computationError, 0)
 {
 
 }
 
-ResultInfo::ResultInfo(OperationInfo* operationInfo,
+ResultInfo::ResultInfo(RequestInfo* requestInfo,
                        CalculatorOperationsLib::TypesComputationErrors computationError,
                        double result)
 {
-    this->operationInfo = operationInfo;
+    this->requestInfo = requestInfo;
     this->computationError = computationError;
     this->result = result;
 }
 
 ResultInfo::~ResultInfo()
 {
-    delete operationInfo;
+    delete requestInfo;
 }
 
 void ResultInfo::SetResult(double result)
@@ -44,9 +44,9 @@ QString ResultInfo::GetComputationErrorString()
 
 QString ResultInfo::GetResult()
 {
-    return QString::number(operationInfo->GetleftOperand(), 'f')+
-            CalculatorOperationsLib::GetOperationTypeSign(operationInfo->GetTypeOperation())+
-            QString::number(operationInfo->GetRightOperand(), 'f')+
+    return QString::number(requestInfo->GetleftOperand(), 'f')+
+            CalculatorOperationsLib::GetOperationTypeSign(requestInfo->GetTypeOperation())+
+            QString::number(requestInfo->GetRightOperand(), 'f')+
             "="+
             ((computationError==CalculatorOperationsLib::TypesComputationErrors::NoComputationError)?
                  QString::number(result, 'f') :

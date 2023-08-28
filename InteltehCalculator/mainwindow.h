@@ -6,7 +6,7 @@
 #include <memory>
 #include "verifyinfo_mainwindow.h"
 #include "errorsspecifier_mainwindow.h"
-#include "operationtimeinfo.h"
+#include "requesttimeinfo.h"
 #include "collectionscontainer.h"
 #include "calculatoroperationslib.h"
 
@@ -29,7 +29,7 @@ class MainWindow : public QMainWindow
     /// Строка, с которой начинается единица сообщения в консоли
     static QString consoleStartString;
     /// Объект хранения текущей операции и информации о времени операций
-    OperationTimeInfo* operationTimeInfo;
+    RequestTimeInfo* requestTimeInfo;
     /// Объект взаимодействия с очередями (shared - для многопоточности)
     std::shared_ptr<CollectionsContainer> collectionsContainer;
 
