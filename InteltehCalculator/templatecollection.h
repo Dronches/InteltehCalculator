@@ -2,13 +2,13 @@
 #define TEMPLATECOLLECTION_H
 
 #include <queue>
-
+#include "mutexadapter.h"
 
 template <class T>
 /*!
  * \brief Класс, обеспечивающий взаимодействие с очередями (для операций/результатов)
  */
-class TemplateCollection
+class TemplateCollection : public MutexAdapter
 {
     /// Очередь объектов используемого типа (операция/результат)
     std::queue<T*> queueData;
@@ -38,7 +38,7 @@ public:
 };
 
 template <class T>
-TemplateCollection<T>::TemplateCollection()
+TemplateCollection<T>::TemplateCollection() : MutexAdapter()
 {
 
 }
