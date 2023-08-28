@@ -133,6 +133,11 @@ private slots:
      */
     void on_buttonSpecial_Equal_clicked();
 
+    /*!
+     * \brief Обработка нажатия на кнопку получения результата из очереди результатов
+     */
+    void on_buttonConsole_Next_clicked();
+
 private:
     /*!
      * \brief Функция очистки области калькулятора
@@ -155,6 +160,12 @@ private:
      * \param messageRequest Сообщение запроса
      */
     void PrintRequest_MainWindow(QString messageRequest);
+
+    /*!
+     * \brief Напечатать результат
+     * \param messageRequest Содержание результата
+     */
+    void PrintResult_MainWindow(QString messageResult);
 
     /*!
      * \brief AcceptOperation Применить операцию на интерфейсе калькулятора в соответствии с проверками

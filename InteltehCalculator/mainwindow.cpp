@@ -71,6 +71,14 @@ void MainWindow::PrintRequest_MainWindow(QString messageRequest)
     PrintSuccess_MainWindow("Запрос: " + messageRequest);
 }
 
+
+void MainWindow::PrintResult_MainWindow(QString messageResult)
+{
+    ui->textEdit_Console->setTextColor(Qt::blue);
+    ui->textEdit_Console->append(consoleStartString + messageResult);
+}
+
+
 void MainWindow::ClearCalculatorWindow()
 {
     // Очистка окна
@@ -314,5 +322,25 @@ void MainWindow::on_buttonSpecial_Equal_clicked()
                             "(" + ui->labelDinamic_CurrentOperand->text() + ")");
     // Осуществить очистку
     ClearCalculatorWindow();
+}
+
+
+void MainWindow::on_buttonConsole_Next_clicked()
+{
+    CalculatorOperationsLib::TypesComputationErrors * computationError =
+            new CalculatorOperationsLib::TypesComputationErrors(
+                 CalculatorOperationsLib::TypesComputationErrors::NoComputationError
+                );
+    // Получить результат из контейнера
+    QString result = collectionsContainer->PopResult(computationError);
+    // Проверка на наличие ошибки вычислений
+    if (*computationError != CalculatorOperationsLib::TypesComputationErrors::NoComputationError)
+       PrintError_MainWindow(false, result);
+    // Проверка на наличие элементов в очереди результата
+    else if (result == "")
+        PrintError_MainWindow(false, "В очереди результата нет элементов");
+    else
+        PrintResult_MainWindow(result);
+    delete computationError;
 }
 
