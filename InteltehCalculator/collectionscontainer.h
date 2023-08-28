@@ -7,6 +7,10 @@
 #include "resultinfo.h"
 #include "calculatoroperationslib.h"
 
+/*!
+ * \brief Класс контенер очередей операций и результата
+ * с возможностью посылать сигналы об изменениях размеров очередей
+ */
 class CollectionsContainer : public QObject
 {
     Q_OBJECT
