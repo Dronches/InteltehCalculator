@@ -54,7 +54,7 @@ public:
     /*!
      * \brief Получить значок (или строку) операции по типу операции
      * \param typeOperation тип операции
-     * \return Символ (или строка) обозначающая операции
+     * \return Символ (или строка), обозначающая операцию
      */
     static QString GetOperationTypeSign(TypesOperation typeOperation);
 private:
