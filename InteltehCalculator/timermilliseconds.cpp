@@ -1,6 +1,6 @@
 #include "timermilliseconds.h"
 
-const int TimerMilliseconds::milliTimeSleep = 100;
+const int TimerMilliseconds::milliTimeSleep = 1;
 
 TimerMilliseconds::TimerMilliseconds()
 {
