@@ -4,7 +4,7 @@ const int TimerMilliseconds::milliTimeSleep = 100;
 
 TimerMilliseconds::TimerMilliseconds()
 {
-
+    StartTime = std::chrono::steady_clock::now();
 }
 
 void TimerMilliseconds::StartTimer()

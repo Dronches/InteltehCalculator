@@ -18,6 +18,7 @@ SOURCES += \
     operationtimeinfo.cpp \
     resultinfo.cpp \
     templatecollection.cpp \
+    threadcomputationcollections.cpp \
     timermilliseconds.cpp \
     verifyinfo_mainwindow.cpp
 
@@ -30,6 +31,7 @@ HEADERS += \
     operationtimeinfo.h \
     resultinfo.h \
     templatecollection.h \
+    threadcomputationcollections.h \
     timermilliseconds.h \
     verifyinfo_mainwindow.h
 
