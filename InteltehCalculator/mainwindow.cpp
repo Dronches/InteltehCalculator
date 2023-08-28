@@ -29,6 +29,10 @@ MainWindow::MainWindow(std::shared_ptr<CollectionsContainer> collectionsContaine
     connect(ui->buttonDigit_7, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
     connect(ui->buttonDigit_8, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
     connect(ui->buttonDigit_9, SIGNAL(clicked()), this, SLOT(ButtonDigitSlot()));
+
+    // Подключение к обработке изменения количества элементов в очередях операций и результата
+    connect(collectionsContainer.get(), SIGNAL(ChangeSizeOperationQueueSignal(int)), this, SLOT(ChangeSizeOperationQueueSlot(int)));
+    connect(collectionsContainer.get(), SIGNAL(ChangeSizeResultQueueSignal(int)), this, SLOT(ChangeSizeResultQueueSlot(int)));
 }
 
 MainWindow::~MainWindow()
@@ -143,6 +147,16 @@ void MainWindow::ButtonDigitSlot()
     else
         PrintError_MainWindow(false, ErrorsSpecifier_MainWindow::getErrorMessage(
                                   ErrorsSpecifier_MainWindow::MainWindow_Errors::DigitOverflow));
+}
+
+void MainWindow::ChangeSizeOperationQueueSlot(int currentCountOperations)
+{
+    ui->labelDinamic_QueueOperations->setText(QString::number(currentCountOperations));
+}
+
+void MainWindow::ChangeSizeResultQueueSlot(int currentCountResults)
+{
+    ui->labelDinamic_QueueResults->setText(QString::number(currentCountResults));
 }
 
 

@@ -51,6 +51,18 @@ private slots:
     void ButtonDigitSlot();
 
     /*!
+     * \brief Слот для обработки изменения количества операций в очереди
+     * \param currentCountOperations Новое количество операций
+     */
+    void ChangeSizeOperationQueueSlot(int currentCountOperations);
+
+    /*!
+     * \brief Слот для обработки изменения количества результатов в очереди
+     * \param currentCountOperations Новое количество результатов
+     */
+    void ChangeSizeResultQueueSlot(int currentCountResults);
+
+    /*!
      * \brief Обработка нажатия на кнопку разделителя
      */
     void on_buttonSpecial_Comma_clicked();

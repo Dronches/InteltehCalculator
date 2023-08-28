@@ -58,7 +58,17 @@ public:
 
 
 signals:
+    /*!
+     * \brief Сигнал изменения количества операций в очереди
+     * \param currentCountOperations Новое количество операций
+     */
+    void ChangeSizeOperationQueueSignal(int currentCountOperations);
 
+    /*!
+     * \brief Сигнал изменения количества результатов в очереди
+     * \param currentCountResults Новое количество результатов
+     */
+    void ChangeSizeResultQueueSignal(int currentCountResults);
 };
 
 #endif // COLLECTIONSCONTAINER_H

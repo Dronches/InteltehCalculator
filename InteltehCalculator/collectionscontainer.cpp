@@ -9,10 +9,11 @@ void CollectionsContainer::PushOperation(CalculatorOperationsLib::TypesOperation
 {
     OperationInfo* info = new OperationInfo(operation, leftOperand, rightOperand, timeWork);
 
-    // Потокобезопасное добавление операции в конеч очереди
+    // Потокобезопасное добавление операции в конец очереди
     operationQueue.Wait_for_lock();
     operationQueue.PushBack(info);
-    /// TO DO : EMIT CHANGE COUNT operationQueue
+    // Сигнал изменения количества операций в очереди
+    emit ChangeSizeOperationQueueSignal(operationQueue.GetSize());
     operationQueue.Unlock();
 }
 
@@ -27,7 +28,8 @@ OperationInfo* CollectionsContainer::PopOperation()
     operationQueue.Wait_for_lock();
     if (operationQueue.GetSize()!=0)    // Проверка на наличие операции в очереди
         info = operationQueue.PopFront();
-    /// TO DO : EMIT CHANGE COUNT operationQueue
+    // Сигнал изменения количества операций в очереди
+    emit ChangeSizeOperationQueueSignal(operationQueue.GetSize());
     operationQueue.Unlock();
     return info;
 }
@@ -48,7 +50,8 @@ void CollectionsContainer::PushResult(OperationInfo* operationInfo,
     // Потокобезопасное добавление операции и её результата в очередь результатов
     resultQueue.Wait_for_lock();
     resultQueue.PushBack(resInfo);
-    /// TO DO : EMIT CHANGE COUNT resultQueue
+    // Сигнал изменения количества результатов в очереди
+    emit ChangeSizeResultQueueSignal(resultQueue.GetSize());
     resultQueue.Unlock();
 }
 
@@ -69,7 +72,8 @@ QString CollectionsContainer::PopResult(CalculatorOperationsLib::TypesComputatio
         return "";
     }
     ResultInfo* resInfo = resultQueue.PopFront();
-    /// TO DO : EMIT CHANGE COUNT operationQueue
+    // Сигнал изменения количества результатов в очереди
+    emit ChangeSizeResultQueueSignal(resultQueue.GetSize());
     resultQueue.Unlock();
 
     // Получение результата и ошибки
