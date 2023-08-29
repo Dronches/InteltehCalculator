@@ -18,7 +18,7 @@ VerifyInfo_MainWindow::VerifyInfo_MainWindow(QObject *parent) : QObject(parent)
 bool VerifyInfo_MainWindow::VerifyInput_DigitsNotOverflow(const QString &currentOperand)
 {
     // проверка на неотрицательность с проверкой размера (знак '-' в подсчёте не учитывается)
-    return (VerifyInput_NotNegativeDigit(currentOperand)? currentOperand.length()<maxInputLength : currentOperand.length()<maxInputLength+1) ;
+    return (VerifyInput_NotNegativeString(currentOperand)? currentOperand.length()<maxInputLength : currentOperand.length()<maxInputLength+1) ;
 }
 
 bool VerifyInfo_MainWindow::VerifyInput_CommaNotExist(const QString &currentOperand)
@@ -36,9 +36,15 @@ bool VerifyInfo_MainWindow::VerifyInput_ExistsSymbolsToDelete(const QString &cur
     return !(currentOperand == firstSymbol);
 }
 
-bool VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(const QString &currentOperand)
+bool VerifyInfo_MainWindow::VerifyInput_NotNegativeString(const QString &currentOperand)
 {
     return !currentOperand.contains(minusSymbol);
+}
+
+bool VerifyInfo_MainWindow::VerifyInput_NotNegativeDigit(QString currentOperand)
+{
+    return currentOperand.replace(",", ".").toDouble() >= 0;
+
 }
 
 bool VerifyInfo_MainWindow::VerifyInput_MaxTimeOperation(const int& timeOperation)

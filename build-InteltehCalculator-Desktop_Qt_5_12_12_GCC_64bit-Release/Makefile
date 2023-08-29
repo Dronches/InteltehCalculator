@@ -259,6 +259,7 @@ DIST          = ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_pre.p
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		../InteltehCalculator/.qmake.stash \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -488,6 +489,7 @@ Makefile: ../InteltehCalculator/InteltehCalculator.pro ../../../../Qt5.12.12/5.1
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf \
@@ -685,6 +687,7 @@ Makefile: ../InteltehCalculator/InteltehCalculator.pro ../../../../Qt5.12.12/5.1
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt5.12.12/5.12.12/gcc_64/mkspecs/features/default_pre.prf:
@@ -1464,7 +1467,43 @@ mainwindow.o: ../InteltehCalculator/mainwindow.cpp ../InteltehCalculator/mainwin
 		../InteltehCalculator/mutexexception.h \
 		../InteltehCalculator/requestinfo.h \
 		../InteltehCalculator/resultinfo.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/QVariant \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QGridLayout \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QHBoxLayout \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QTextEdit \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextdocument.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextoption.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextcursor.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qtextformat.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtGui/qpen.h \
+		../../../../Qt5.12.12/5.12.12/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../InteltehCalculator/mainwindow.cpp
 
 mutexadapter.o: ../InteltehCalculator/mutexadapter.cpp ../InteltehCalculator/mutexadapter.h \

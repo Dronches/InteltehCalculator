@@ -5,7 +5,6 @@
 #include <QTranslator>
 #include <memory>
 #include <exception>
-
 #include "collectionscontainer.h"
 #include "threadcomputationcollections.h"
 #include "mutexexception.h"
@@ -31,7 +30,6 @@ void * thread_ComputationPerformer(void * voidThreadComputationCollections){
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
     // Необязательный ввод транслятора
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();

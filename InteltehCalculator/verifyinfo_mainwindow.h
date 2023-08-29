@@ -12,9 +12,6 @@ class VerifyInfo_MainWindow : public QObject
 {
     Q_OBJECT
 
-    /// Ограничение максимального размера ввода
-    static const uchar maxInputLength;
-
 public:
     /// Символ по умолчанию
     static const char firstSymbol;
@@ -24,6 +21,8 @@ public:
     static const char minusSymbol;
     /// Максимальное принятое время операции (во избежание болей ожидания)
     static const int maxTimeOperation;
+    /// Ограничение максимального размера ввода
+    static const uchar maxInputLength;
 
     explicit VerifyInfo_MainWindow(QObject *parent = nullptr);
 
@@ -62,7 +61,14 @@ public:
      * \param currentOperand главная строка ввода (текущий операнд)
      * \return результат проверки
      */
-    static bool VerifyInput_NotNegativeDigit(const QString &currentOperand);
+    static bool VerifyInput_NotNegativeString(const QString &currentOperand);
+
+    /*!
+     * \brief Проверка на возможность преобразования к неотрицательному числу
+     * \param currentOperand главная строка ввода (текущий операнд)
+     * \return результат проверки
+     */
+    static bool VerifyInput_NotNegativeDigit(QString currentOperand);
 
     /*!
      * \brief Проверка на не превышение максимального времени операции
