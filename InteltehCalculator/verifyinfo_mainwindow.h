@@ -61,7 +61,14 @@ public:
      * \param currentOperand главная строка ввода (текущий операнд)
      * \return результат проверки
      */
-    static bool VerifyInput_NotNegativeDigit(const QString &currentOperand);
+    static bool VerifyInput_NotNegativeString(const QString &currentOperand);
+
+    /*!
+     * \brief Проверка на возможность преобразования к неотрицательному числу
+     * \param currentOperand главная строка ввода (текущий операнд)
+     * \return результат проверки
+     */
+    static bool VerifyInput_NotNegativeDigit(QString currentOperand);
 
     /*!
      * \brief Проверка на не превышение максимального времени операции
