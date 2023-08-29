@@ -3,7 +3,10 @@
 
 #include <exception>
 
-class MutexException : std::exception
+/*!
+ * \brief Класс определяющий выброс исключения при инициализации мьютекса
+ */
+class MutexException : public std::exception
 {
 public:
     MutexException();
